@@ -1,12 +1,19 @@
 import Link from "next/link";
 
+import styles from "@/styles/MainPage.module.css";
+
 export default function Home() {
   return (
-    <Link
-      href="/protected"
-      prefetch={false} // workaround until https://github.com/vercel/vercel/pull/8978 is deployed
-    >
-      Protected Page
-    </Link>
+    <div className={styles.container}>
+      <span>
+        <span></span>
+        <span></span>
+      </span>
+      <Link href="/protected">WISHLIST</Link>
+      <span>
+        <span></span>
+        <span></span>
+      </span>
+    </div>
   );
 }

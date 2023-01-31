@@ -1,0 +1,11 @@
+.homepageLink {
+  position: absolute;
+  padding: 1rem;
+  font-size: calc(var(--fontSize-header1) * 1.5);
+  transition: transform 0.2s ease-in-out;
+}
+
+.homepageLink:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
+}

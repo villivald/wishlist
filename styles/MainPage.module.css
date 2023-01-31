@@ -1,0 +1,80 @@
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  background-color: hsla(0, 100%, 50%, 1);
+  background-image: radial-gradient(
+      at 40% 20%,
+      hsla(28, 100%, 74%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 1) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, hsla(340, 100%, 76%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(22, 100%, 77%, 1) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, hsla(242, 100%, 70%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(343, 100%, 76%, 1) 0px, transparent 50%);
+}
+
+.container a {
+  text-decoration: none;
+  font-family: var(--font-brand);
+  font-size: calc(var(--fontSize-header1) * 3);
+}
+
+.container span {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container:hover span > span:first-child {
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.container:hover span > span:last-child {
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+  animation: pulse 3s infinite;
+}
+
+.container span > span:first-child {
+  position: absolute;
+  background-image: url("../public/index.svg");
+  width: 5rem;
+  height: 5rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.container span:first-child span:first-child {
+  transform: rotate(90deg);
+}
+
+.container span:last-child span:first-child {
+  transform: rotate(-90deg);
+}
+
+.container span > span:last-child {
+  position: absolute;
+  background-image: url("../public/middle.svg");
+  width: 5rem;
+  height: 5rem;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Nabla&family=Amiko&family=Crete+Round&family=Istok+Web&display=swap");
+
+:root {
+  /* Colors */
+  --color-brand-yellow: hsl(51, 74%, 60%);
+  --color-brand-green: hsl(141, 40%, 65%);
+  --color-brand-teal: hsl(187, 52%, 22%);
+  --color-brand-red: hsl(10, 94%, 60%);
+  --color-brand-grey: hsl(258, 10%, 80%);
+  --color-brand-grey85: hsl(258, 10%, 85%);
+  --color-brand-dark: hsl(236, 21%, 14%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-black: hsl(0, 0%, 0%);
+
+  /* Fonts */
+  --font-brand: "Nabla", serif;
+  --font-header: "Crete Round", serif;
+  --font-subheader: Amiko, sans-serif;
+  --font-body: "Istok Web", sans-serif;
+
+  /* Typescale */
+  --fontSize-header1: 1.8rem;
+  --fontSize-header2: 1.6rem;
+  --fontSize-header3: 1.4rem;
+  --fontSize-header4: 1.2rem;
+  --fontSize-header5: 1.1em;
+  --fontSize-paragraph: 1rem;
+  --fontSize-helperText: 0.8rem;
+  --fontSize-copyrightText: 0.7rem;
+
+  /* Animation */
+  --easing-normal: cubic-bezier(0.5, 0.1, 0.5, 1);
+
+  /* Shadows */
+  --shadow-1: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  /* Breakpoints */
+  --breakpoint-max: 112.5rem; /* 1800px */
+  --breakpoint-xxl: 75rem; /* 1200px */
+  --breakpoint-xl: 62.5rem; /* 1000px */
+  --breakpoint-l: 53.125rem; /* 850px */
+  --breakpoint-m: 46.875rem; /* 750px */
+  --breakpoint-s: 37.5rem; /* 600px */
+  --breakpoint-xs: 31.25rem; /* 500px */
+  --breakpoint-min: 25rem; /* 400px */
+}
+
+/* CSS Reset */
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+  height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+p,
+li,
+a {
+  font-family: var(--font-body);
+  font-size: var(--fontSize-paragraph);
+  color: var(--color-brand-dark);
+}
+
+h1 {
+  font-family: var(--font-header);
+  font-size: var(--fontSize-header1);
+  color: var(--color-brand-dark);
+}
+
+h2 {
+  font-family: var(--font-header);
+  font-size: var(--fontSize-header2);
+  color: var(--color-brand-dark);
+}
+
+h3 {
+  font-family: var(--font-subheader);
+  font-size: var(--fontSize-header3);
+  color: var(--color-brand-dark);
+}
+
+h4 {
+  font-family: var(--font-subheader);
+  font-size: var(--fontSize-header4);
+  color: var(--color-brand-dark);
+}
+
+h5 {
+  font-family: var(--font-subheader);
+  font-size: var(--fontSize-header5);
+  color: var(--color-brand-dark);
+}
