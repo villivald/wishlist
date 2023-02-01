@@ -1,0 +1,15 @@
+.container {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  padding: 0 0.5rem;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+  height: 16rem;
+}

@@ -4,16 +4,20 @@ import styles from "@/styles/MainPage.module.css";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <span>
-        <span></span>
-        <span></span>
-      </span>
-      <Link href="/protected">WISHLIST</Link>
-      <span>
-        <span></span>
-        <span></span>
-      </span>
+    <div className={styles.wrapper}>
+      <div className={styles.container}>
+        <span>
+          <span></span>
+          <span></span>
+        </span>
+        <Link href="/protected" prefetch={false}>
+          WISHLIST
+        </Link>
+        <span>
+          <span></span>
+          <span></span>
+        </span>
+      </div>
     </div>
   );
 }

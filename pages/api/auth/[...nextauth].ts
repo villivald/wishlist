@@ -16,15 +16,18 @@ export default NextAuth({
         if (!email || !password) {
           throw new Error("Missing username or password");
         }
+
         const user = await prisma.user.findUnique({
           where: {
             email,
           },
         });
+
         // if user doesn't exist or password doesn't match
         if (!user || !(await compare(password, user.password))) {
           throw new Error("Invalid username or password");
         }
+
         return user;
       },
     }),
