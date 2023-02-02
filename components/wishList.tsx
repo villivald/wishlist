@@ -2,15 +2,7 @@
 import { useEffect, useState } from "react";
 import styles from "@/styles/WishList.module.css";
 
-export default function Wishlist({
-  session,
-}: {
-  session: {
-    user: {
-      email: string;
-    };
-  };
-}) {
+export default function Wishlist({ session }: { session: any }) {
   const [wishlistItems, setWishlistItems] = useState([]);
 
   useEffect(() => {
