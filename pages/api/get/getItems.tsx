@@ -5,12 +5,12 @@ export default async function handle(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { email, name, price, url, image_url } = req.body;
+  const email = req.body.email;
 
   // find user by email
   const user = await prisma.user.findUnique({
     where: {
-      email,
+      email: email || "",
     },
   });
 
@@ -21,16 +21,12 @@ export default async function handle(
     },
   });
 
-  // add item to wishlist
-  const result = await prisma.wishlistItem.create({
-    data: {
-      user_id: user?.id || 0,
-      wishlist_id: wishlist?.id || 0,
-      name,
-      price,
-      url,
-      image_url,
+  // find wishlist items by wishlist id
+  const result = await prisma.wishlistItem.findMany({
+    where: {
+      wishlist_id: wishlist?.id,
     },
   });
+
   res.json(result);
 }

@@ -5,8 +5,6 @@ import toast from "react-hot-toast";
 export default function AddItem({ session }: { session: any }) {
   const router = useRouter();
 
-  console.log(session?.user.email);
-
   return (
     <form
       onSubmit={(e) => {
@@ -35,16 +33,15 @@ export default function AddItem({ session }: { session: any }) {
             toast.error(await res.text());
           }
         });
+
+        //clear form
+        // @ts-ignore
+        e.currentTarget.name.value = "";
+        e.currentTarget.price.value = "";
+        e.currentTarget.url.value = "";
+        e.currentTarget.image_url.value = "";
       }}
     >
-      {/* <div>
-        <label htmlFor="user_id">user id</label>
-        <input id="user_id" name="user_id" />
-      </div>
-      <div>
-        <label htmlFor="wishlist_id">wishlist id</label>
-        <input id="wishlist_id" name="wishlist_id" />
-      </div> */}
       <div>
         <label htmlFor="name">name</label>
         <input id="name" name="name" />
@@ -61,7 +58,7 @@ export default function AddItem({ session }: { session: any }) {
         <label htmlFor="image_url">image url</label>
         <input id="image_url" name="image_url" />
       </div>
-      <button type="submit">Submit a wishlist item</button>
+      <button type="submit">Add a wishlist item</button>
     </form>
   );
 }
