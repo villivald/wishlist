@@ -1,31 +1,30 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import styles from "@/styles/WishList.module.css";
-import Link from "next/link";
 
-export default function Wishlist({ session }: { session: any }) {
+export default function Wishlist({ slug }: { slug: string }) {
   const [wishlistItems, setWishlistItems] = useState([]);
 
   useEffect(() => {
-    const email = session?.user?.email;
-
-    fetch("/api/get/getItems", {
+    fetch("/api/get/getWishlistItems", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email }),
+      body: JSON.stringify({
+        id: parseInt(slug),
+      }),
     })
       .then((res) => res.json())
       .then((data) => {
         setWishlistItems(data);
       });
-  }, [session]);
+  }, [slug]);
 
   return (
     <div>
-      <Link href="/publicWishlists">Link to public wishlists</Link>
-      <h1>My Wishlist</h1>
+      <h1>Wishlist number {slug}</h1>
       <div>
         {wishlistItems?.map(
           (item: {
