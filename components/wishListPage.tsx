@@ -33,6 +33,7 @@ export default function Wishlist({ slug }: { slug: string }) {
             price: number;
             url: string;
             image_url: string;
+            description: string;
           }) => (
             <div key={item.id} className={styles.card}>
               <div>
@@ -46,6 +47,9 @@ export default function Wishlist({ slug }: { slug: string }) {
               </div>
               <div>
                 Pic: <p>{item.image_url}</p>
+              </div>
+              <div>
+                Description: <p>{item.description}</p>
               </div>
             </div>
           )

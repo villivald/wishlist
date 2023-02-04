@@ -22,7 +22,7 @@ export default function PublicWishlists() {
       <h1>Public Wishlists</h1>
       <div className={styles.wishlists}>
         {wishlists?.map(
-          (item: { id: number; name: string; description: string }) => (
+          (item: { id: number; title: string; description: string }) => (
             <Link
               href={`/wishlist/${item.id}`}
               key={item.id}
@@ -33,11 +33,11 @@ export default function PublicWishlists() {
                   <p>ID:</p> <p>{item.id}</p>
                 </div>
                 <div>
-                  <p>Title:</p> <p>{item.name}</p>
+                  <p>Title:</p> <p>{item.title}</p>
                 </div>
-                <div>
+                {/* <div>
                   <p>Description:</p> <p>{item.description}</p>
-                </div>
+                </div> */}
               </div>
             </Link>
           )

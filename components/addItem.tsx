@@ -17,11 +17,11 @@ export default function AddItem({ session }: { session: any }) {
           body: JSON.stringify({
             email: session?.user.email,
             // @ts-ignore
-            // TODO: fix this
-            name: e.currentTarget.name.value,
+            title: e.currentTarget.title.value,
             price: parseFloat(e.currentTarget.price.value),
             url: e.currentTarget.url.value,
             image_url: e.currentTarget.image_url.value,
+            description: e.currentTarget.description.value,
           }),
         }).then(async (res) => {
           if (res.status === 200) {
@@ -36,15 +36,16 @@ export default function AddItem({ session }: { session: any }) {
 
         //clear form
         // @ts-ignore
-        e.currentTarget.name.value = "";
+        e.currentTarget.title.value = "";
         e.currentTarget.price.value = "";
         e.currentTarget.url.value = "";
         e.currentTarget.image_url.value = "";
+        e.currentTarget.description.value = "";
       }}
     >
       <div>
-        <label htmlFor="name">name</label>
-        <input id="name" name="name" />
+        <label htmlFor="title">title</label>
+        <input id="title" name="title" />
       </div>
       <div>
         <label htmlFor="price">price</label>
@@ -57,6 +58,10 @@ export default function AddItem({ session }: { session: any }) {
       <div>
         <label htmlFor="image_url">image url</label>
         <input id="image_url" name="image_url" />
+      </div>
+      <div>
+        <label htmlFor="description">description</label>
+        <textarea id="description" name="description" />
       </div>
       <button type="submit">Add a wishlist item</button>
     </form>

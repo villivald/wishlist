@@ -5,7 +5,7 @@ export default async function handle(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { email, name, price, url, image_url } = req.body;
+  const { email, title, price, url, image_url, description } = req.body;
 
   // find user by email
   const user = await prisma.user.findUnique({
@@ -26,10 +26,11 @@ export default async function handle(
     data: {
       user_id: user?.id || 0,
       wishlist_id: wishlist?.id || 0,
-      name,
+      title,
       price,
       url,
       image_url,
+      description,
     },
   });
   res.json(result);

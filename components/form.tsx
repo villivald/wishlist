@@ -39,6 +39,7 @@ export default function Form({ type }: { type: "login" | "register" }) {
             body: JSON.stringify({
               email: e.currentTarget.email.value,
               password: e.currentTarget.password.value,
+              wishlist_name: e.currentTarget.wishlist_name.value,
             }),
           }).then(async (res) => {
             setLoading(false);
@@ -69,6 +70,12 @@ export default function Form({ type }: { type: "login" | "register" }) {
         <label htmlFor="password">Password</label>
         <input id="password" name="password" type="password" required />
       </div>
+      {type === "register" && (
+        <div>
+          <label htmlFor="wishlist_name">Wishlist Name</label>
+          <input id="wishlist_name" name="wishlist_name" required />
+        </div>
+      )}
       <button disabled={loading}>
         {loading ? (
           <LoadingDots />

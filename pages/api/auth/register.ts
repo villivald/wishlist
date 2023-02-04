@@ -6,7 +6,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { email, password } = req.body;
+  const { email, password, wishlist_name } = req.body;
   const exists = await prisma.user.findUnique({
     where: {
       email,
@@ -24,12 +24,13 @@ export default async function handler(
       },
     });
 
-    // create a wishlist for the user with name containing the user's email
+    // create a wishlist for the user with title passed in during registration
     const wishlist = await prisma.wishlist.create({
       data: {
-        name: `${email}'s wishlist`,
+        title: wishlist_name,
         user_id: user.id,
-        description: "Wishlist for " + email,
+        description: "",
+        image_url: "",
       },
     });
 
