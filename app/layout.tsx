@@ -28,9 +28,13 @@ export default async function RootLayout({
           <Toaster />
 
           <div>
-            {session && (
+            {session ? (
               <p>
                 Signed in as {session.user?.email} <SignOut />
+              </p>
+            ) : (
+              <p>
+                <Link href="/login">Sign in</Link>
               </p>
             )}
           </div>

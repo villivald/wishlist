@@ -1,0 +1,76 @@
+.form {
+  display: grid;
+  gap: 1rem;
+  font-family: var(--font-body);
+}
+
+.form h1 {
+  text-align: center;
+}
+
+.form div {
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  gap: 1rem;
+}
+
+.button,
+.disabledButton {
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: var(--fontSize-header4);
+  color: var(--color-brand-dark);
+  font-family: var(--font-subheader);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.button {
+  background-color: var(--color-brand-green);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.button:hover {
+  padding-right: 1.5rem;
+}
+
+.button:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+
+.button:after {
+  content: "+";
+  position: absolute;
+  opacity: 0;
+  font-size: 2rem;
+  top: -3px;
+  right: -20px;
+  transition: 0.4s;
+}
+
+.button:active {
+  transform: scale(0.95);
+}
+
+.disabledButton {
+  background-color: var(--color-brand-grey);
+}
+
+.tooltip {
+  display: grid;
+  grid-area: 2 / 2 / 3 / 3;
+  color: var(--color-brand-grey);
+}
+
+.tooltip > span > span,
+.tooltip > span:last-child {
+  font-style: italic;
+}
+
+.tooltip:hover {
+  color: var(--color-brand-dark);
+}

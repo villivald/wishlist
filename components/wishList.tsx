@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 import styles from "@/styles/WishList.module.css";
-import Link from "next/link";
 
 export default function Wishlist({ session }: { session: any }) {
   const [wishlistItems, setWishlistItems] = useState(
@@ -47,10 +46,9 @@ export default function Wishlist({ session }: { session: any }) {
   };
 
   return (
-    <div>
-      <Link href="/publicWishlists">Link to public wishlists</Link>
+    <div className={styles.container}>
       <h1>My Wishlist</h1>
-      <div>
+      <div className={styles.cards}>
         {wishlistItems?.map(
           (item: {
             id: number;
@@ -65,7 +63,7 @@ export default function Wishlist({ session }: { session: any }) {
                 Title: <p>{item.title}</p>
               </div>
               <div>
-                Price: <p>{item.price}</p>
+                Price: <p>{item.price} €</p>
               </div>
               <div>
                 Url: <p>{item.url}</p>
@@ -73,9 +71,10 @@ export default function Wishlist({ session }: { session: any }) {
               <div>
                 Pic: <p>{item.image_url}</p>
               </div>
-              <div>
-                Description: <p>{item.description}</p>
-              </div>
+              <details>
+                <summary>Description</summary>
+                <p>{item.description}</p>
+              </details>
               <button onClick={() => handleDelete(item.id)}>Delete</button>
             </div>
           )

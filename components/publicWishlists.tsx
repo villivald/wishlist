@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
-import styles from "@/styles/PublicWishlists.module.css";
 import Link from "next/link";
+
+import styles from "@/styles/PublicWishlists.module.css";
 
 export default function PublicWishlists() {
   const [wishlists, setWishlists] = useState([]);
@@ -14,11 +15,8 @@ export default function PublicWishlists() {
       });
   }, []);
 
-  console.log(wishlists);
-
   return (
     <div className={styles.container}>
-      <Link href="/protected">Link to own page</Link>
       <h1>Public Wishlists</h1>
       <div className={styles.wishlists}>
         {wishlists?.map(

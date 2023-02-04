@@ -1,8 +1,6 @@
 .container {
   display: grid;
-  place-content: center;
-  min-height: 100vh;
-  padding: 0 0.5rem;
+  justify-items: center;
 }
 
 .card {
@@ -11,5 +9,7 @@
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin: 20px;
-  height: 16rem;
+  min-height: 25rem;
+  position: fixed;
+  bottom: 0;
 }
