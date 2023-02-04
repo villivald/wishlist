@@ -1,11 +1,20 @@
 "use client";
-import styles from "@/styles/Signout.module.css";
 import { signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
+
+import styles from "@/styles/Signout.module.css";
 
 export default function SignOut() {
+  const router = useRouter();
+
+  const handleSignOut = () => {
+    signOut();
+    router.push("/");
+  };
+
   return (
-    <div className={styles.container}>
-      <button onClick={() => signOut()}>Sign out</button>
-    </div>
+    <button className={styles.button} onClick={handleSignOut}>
+      Sign out
+    </button>
   );
 }

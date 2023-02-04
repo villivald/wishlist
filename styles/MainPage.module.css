@@ -1,5 +1,5 @@
 .wrapper {
-  height: 100vh;
+  height: calc(100vh - 56px);
   background-color: hsla(0, 100%, 50%, 1);
   background-image: radial-gradient(
       at 40% 20%,

@@ -29,7 +29,7 @@ export default function Wishlist({ slug }: { slug: string }) {
         {wishlistItems?.map(
           (item: {
             id: number;
-            name: string;
+            title: string;
             price: number;
             url: string;
             image_url: string;
@@ -37,7 +37,7 @@ export default function Wishlist({ slug }: { slug: string }) {
           }) => (
             <div key={item.id} className={styles.card}>
               <div>
-                Title: <p>{item.name}</p>
+                Title: <p>{item.title}</p>
               </div>
               <div>
                 Price: <p>{item.price}</p>

@@ -1,11 +1,31 @@
-.homepageLink {
-  position: absolute;
-  padding: 1rem;
-  font-size: calc(var(--fontSize-header1) * 1.5);
-  transition: transform 0.2s ease-in-out;
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--color-brand-yellow);
+  box-shadow: inset 1px 1px 8px -1px rgba(84, 113, 135, 0.5);
 }
 
-.homepageLink:hover {
-  transform: scale(1.1);
-  transition: transform 0.2s ease-in-out;
+.menu span {
+  display: flex;
+  gap: 2rem;
+}
+
+.menu a,
+.menu p {
+  color: var(--color-brand-dark);
+  font-family: var(--font-header);
+  text-decoration: none;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+.menu div p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-right: 2rem;
 }

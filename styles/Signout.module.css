@@ -1,5 +1,13 @@
-.container {
-  display: grid;
-  place-items: center;
-  height: 100vh;
+.button {
+  background-color: var(--color-brand-red);
+  border: none;
+  color: white;
+  padding: 5px 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
