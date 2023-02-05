@@ -1,5 +1,7 @@
 "use client";
+import Link from "next/link";
 import { useEffect, useState } from "react";
+
 import styles from "@/styles/MyWishList.module.css";
 
 export default function Wishlist({ session }: { session: any }) {
@@ -69,13 +71,23 @@ export default function Wishlist({ session }: { session: any }) {
                 Title: <p>{item.title}</p>
               </div>
               <div>
-                Price: <p>{item.price} €</p>
+                Price: <p>{item.price}€</p>
               </div>
               <div>
-                Url: <p>{item.url}</p>
+                Website:{" "}
+                <p>
+                  <Link href={item.url} target="_blank">
+                    Link
+                  </Link>
+                </p>
               </div>
               <div>
-                Pic: <p>{item.image_url}</p>
+                Image:{" "}
+                <p>
+                  <Link href={item.image_url} target="_blank">
+                    Link
+                  </Link>
+                </p>
               </div>
               <details>
                 <summary>Description</summary>
