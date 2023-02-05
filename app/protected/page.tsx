@@ -1,6 +1,6 @@
 import AddItem from "@/components/addItem";
 import AuthStatus from "@/components/auth-status";
-import Wishlist from "@/components/wishList";
+import MyWishlist from "@/components/myWishList";
 import styles from "@/styles/Protected.module.css";
 
 export default async function Home() {
@@ -8,7 +8,7 @@ export default async function Home() {
 
   return (
     <div className={styles.container}>
-      <Wishlist session={session} />
+      <MyWishlist session={session} />
       <div className={styles.card}>
         <AddItem session={session} />
       </div>

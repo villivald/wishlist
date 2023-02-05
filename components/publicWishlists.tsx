@@ -19,27 +19,23 @@ export default function PublicWishlists() {
     <div className={styles.container}>
       <h1>Public Wishlists</h1>
       <div className={styles.wishlists}>
-        {wishlists?.map(
-          (item: { id: number; title: string; description: string }) => (
-            <Link
-              href={`/wishlist/${item.id}`}
-              key={item.id}
-              className={styles.link}
-            >
-              <div key={item.id} className={styles.card}>
-                <div>
-                  <p>ID:</p> <p>{item.id}</p>
-                </div>
-                <div>
-                  <p>Title:</p> <p>{item.title}</p>
-                </div>
-                {/* <div>
-                  <p>Description:</p> <p>{item.description}</p>
-                </div> */}
-              </div>
-            </Link>
-          )
-        )}
+        {wishlists?.map((item: { id: number; title: string }) => (
+          <Link
+            href={`/wishlist/${item.id}`}
+            key={item.id}
+            className={styles.link}
+          >
+            <div key={item.id} className={styles.card}>
+              <p
+                style={{
+                  fontSize: `${4 - item.title.length / 4}rem`,
+                }}
+              >
+                {item.title}
+              </p>
+            </div>
+          </Link>
+        ))}
       </div>
     </div>
   );

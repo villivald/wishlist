@@ -1,5 +1,5 @@
-import WishListPage from "@/components/wishListPage";
+import SingleWishlist from "@/components/singlePublicWishlist";
 
 export default function Page({ params }: { params: { slug: string } }) {
-  return <WishListPage slug={params.slug} />;
+  return <SingleWishlist slug={params.slug} />;
 }

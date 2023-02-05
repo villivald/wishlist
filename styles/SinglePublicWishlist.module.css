@@ -1,0 +1,33 @@
+.container {
+  display: grid;
+  place-content: center;
+}
+
+.container h1 {
+  text-align: center;
+  padding: 1rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  font-family: var(--font-body);
+}
+
+.card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.card div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.card summary {
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}

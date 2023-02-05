@@ -10,11 +10,13 @@
 .wishlists {
   display: grid;
   gap: 1rem;
+  justify-content: center;
 }
 
 .link,
 .card {
-  width: 25rem;
+  width: 10rem;
+  height: 10rem;
 }
 
 .link {
@@ -27,13 +29,15 @@
 }
 
 .card {
+  display: grid;
+  place-content: center;
   background-color: #fff;
-  border-radius: 5px;
+  border-radius: 5rem;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   padding: 1rem;
-  height: 8rem;
 }
 
-.card > div {
-  display: flex;
+.card p {
+  font-family: var(--font-brand);
+  text-align: center;
 }

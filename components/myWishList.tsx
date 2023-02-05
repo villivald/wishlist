@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import styles from "@/styles/WishList.module.css";
+import styles from "@/styles/MyWishList.module.css";
 
 export default function Wishlist({ session }: { session: any }) {
   const [wishlistItems, setWishlistItems] = useState(
@@ -31,7 +31,6 @@ export default function Wishlist({ session }: { session: any }) {
   }, [session]);
 
   const handleDelete = (id: number) => {
-    console.log(id);
     fetch("/api/delete/deleteItem", {
       method: "POST",
       headers: {
@@ -46,7 +45,14 @@ export default function Wishlist({ session }: { session: any }) {
   };
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{
+        minHeight: `calc(100vh + 10vh * ${Math.ceil(
+          wishlistItems?.length / 4
+        )})`,
+      }}
+    >
       <h1>My Wishlist</h1>
       <div className={styles.cards}>
         {wishlistItems?.map(

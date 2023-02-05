@@ -7,6 +7,14 @@ const nextConfig = {
     appDir: true,
     serverComponentsExternalPackages: ["prisma", "@prisma/client"],
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;
