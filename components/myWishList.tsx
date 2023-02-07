@@ -49,11 +49,11 @@ export default function Wishlist({ session }: { session: any }) {
   return (
     <div
       className={styles.container}
-      style={{
-        minHeight: `calc(100vh + 10vh * ${Math.ceil(
-          wishlistItems?.length / 4
-        )})`,
-      }}
+      // style={{
+      //   minHeight: `calc(100vh + 10vh * ${Math.ceil(
+      //     wishlistItems?.length / 4
+      //   )})`,
+      // }}
     >
       <h1>My Wishlist</h1>
       <div className={styles.cards}>

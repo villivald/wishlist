@@ -16,6 +16,7 @@
 
 .card {
   display: grid;
+  grid-template-rows: repeat(6, 1fr);
   background-color: #fff;
   border: 1px solid #e6e6e6;
   border-radius: 4px;
@@ -25,16 +26,47 @@
   gap: 0.2rem;
 }
 
+.card > div:not(:last-child) {
+  height: 2rem;
+}
+
 .card > div {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
+.card > div > p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .card > button {
   font-family: var(--font-subheader);
+  background-color: var(--color-brand-red);
+  border: none;
+  height: 2.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.card > button:hover {
+  background-color: var(--color-brand-dark);
+  color: #fff;
+}
+
+.card > button:active {
+  transform: scale(0.95);
 }
 
 .card summary {
   cursor: pointer;
   margin-bottom: 0.5rem;
+}
+
+@media (max-width: 1000px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
 }

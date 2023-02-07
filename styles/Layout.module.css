@@ -29,3 +29,32 @@
   gap: 0.5rem;
   margin-right: 2rem;
 }
+
+.menu > span:nth-child(2) {
+  display: none;
+}
+
+.menu > span > a {
+  transition: transform 0.2s ease-in-out;
+}
+
+@media (max-width: 850px) {
+  .menu > div > p > span {
+    display: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .menu > span:nth-child(1) {
+    display: none;
+  }
+
+  .menu > span:nth-child(2) {
+    display: flex;
+  }
+
+  .menu > span:nth-child(2) > a:hover {
+    transition: transform 2s ease-in-out;
+    transform: scale(1.1);
+  }
+}

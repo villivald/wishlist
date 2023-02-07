@@ -8,8 +8,8 @@
 }
 
 .wishlists {
-  display: grid;
-  gap: 1rem;
+  display: flex;
+  gap: 2rem;
   justify-content: center;
 }
 

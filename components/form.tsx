@@ -73,7 +73,7 @@ export default function Form({ type }: { type: "login" | "register" }) {
       </div>
       {type === "register" && (
         <div>
-          <label htmlFor="wishlist_name">Wishlist Name</label>
+          <label htmlFor="wishlist_name">Name for your wishlist</label>
           <input id="wishlist_name" name="wishlist_name" required />
         </div>
       )}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import Toaster from "@/components/toaster";
 import AuthStatus from "@/components/auth-status";
@@ -25,12 +26,23 @@ export default async function RootLayout({
             </Link>
             <Link href="/publicWishlists">Public Wishlists</Link>
           </span>
+          <span>
+            <Link href="/">
+              <Image src="/home.svg" alt="Logo" width={24} height={24} />
+            </Link>
+            <Link href="/protected" prefetch={false}>
+              <Image src="/profile.svg" alt="Logo" width={24} height={24} />
+            </Link>
+            <Link href="/publicWishlists">
+              <Image src="/list.svg" alt="Logo" width={24} height={24} />
+            </Link>
+          </span>
           <Toaster />
 
           <div>
             {session ? (
               <p>
-                Signed in as {session.user?.email} <SignOut />
+                <span>Signed in as {session.user?.email}</span> <SignOut />
               </p>
             ) : (
               <p>
