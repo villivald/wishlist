@@ -31,7 +31,8 @@
 .card {
   display: grid;
   place-content: center;
-  background-color: #fff;
+  background-color: hsla(0, 100%, 50%, 1);
+  background-image: var(--radial-gradient);
   border-radius: 5rem;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   padding: 1rem;
@@ -40,4 +41,12 @@
 .card p {
   font-family: var(--font-brand);
   text-align: center;
+}
+
+@media (max-width: 600px) {
+  .card p {
+    font-family: var(--font-header);
+    color: var(--color-brand-yellow-saturated);
+    text-shadow: 2px 2px var(--color-brand-dark);
+  }
 }

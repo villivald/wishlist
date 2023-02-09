@@ -3,6 +3,7 @@
 :root {
   /* Colors */
   --color-brand-yellow: hsl(51, 74%, 60%);
+  --color-brand-yellow-saturated: hsl(55, 100%, 60%);
   --color-brand-green: hsl(141, 40%, 65%);
   --color-brand-teal: hsl(187, 52%, 22%);
   --color-brand-red: hsl(10, 94%, 60%);
@@ -43,6 +44,19 @@
   --breakpoint-s: 37.5rem; /* 600px */
   --breakpoint-xs: 31.25rem; /* 500px */
   --breakpoint-min: 25rem; /* 400px */
+
+  /* Gradients */
+  --radial-gradient: radial-gradient(
+      at 40% 20%,
+      hsla(28, 100%, 74%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 1) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, hsla(340, 100%, 76%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(22, 100%, 77%, 1) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, hsla(242, 100%, 70%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(343, 100%, 76%, 1) 0px, transparent 50%);
 }
 
 /* CSS Reset */
