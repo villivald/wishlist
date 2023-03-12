@@ -28,6 +28,7 @@ model WishlistItem {
   wishlist_id Int
   user_id     Int
   description String
+  ready       Boolean @default(false)
 }
 
 // model for a single wishlist

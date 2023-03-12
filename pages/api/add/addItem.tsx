@@ -31,6 +31,7 @@ export default async function handle(
       url,
       image_url,
       description,
+      ready: false,
     },
   });
   res.json(result);

@@ -13,6 +13,7 @@ export default function Wishlist({ session }: { session: any }) {
       url: string;
       image_url: string;
       description: string;
+      ready: boolean;
     }[]
   );
 
@@ -46,6 +47,28 @@ export default function Wishlist({ session }: { session: any }) {
     });
   };
 
+  const handleMarkAsReady = (id: number) => {
+    fetch("/api/update/markAsReady", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setWishlistItems(
+          wishlistItems.map((item) => {
+            if (item.id === id) {
+              return data;
+            } else {
+              return item;
+            }
+          })
+        );
+      });
+  };
+
   return (
     <div
       className={styles.container}
@@ -57,46 +80,94 @@ export default function Wishlist({ session }: { session: any }) {
     >
       <h1>My Wishlist</h1>
       <div className={styles.cards}>
-        {wishlistItems?.map(
-          (item: {
-            id: number;
-            title: string;
-            price: number;
-            url: string;
-            image_url: string;
-            description: string;
-          }) => (
-            <div key={item.id} className={styles.card}>
-              <div>
-                Title: <p>{item.title}</p>
+        {wishlistItems
+          ?.filter((item) => !item.ready)
+          .map(
+            (item: {
+              id: number;
+              title: string;
+              price: number;
+              url: string;
+              image_url: string;
+              description: string;
+              ready: boolean;
+            }) => (
+              <div key={item.id} className={styles.card}>
+                <div>
+                  Title: <p>{item.title}</p>
+                </div>
+                <div>
+                  Price: <p>{item.price}€</p>
+                </div>
+                <div>
+                  Website:{" "}
+                  <p>
+                    <Link href={item.url} target="_blank">
+                      Link
+                    </Link>
+                  </p>
+                </div>
+                <div>
+                  Image:{" "}
+                  <p>
+                    <Link href={item.image_url} target="_blank">
+                      Link
+                    </Link>
+                  </p>
+                </div>
+                <details>
+                  <summary>Description</summary>
+                  <p>{item.description}</p>
+                </details>
+                <button onClick={() => handleDelete(item.id)}>Delete</button>
+                <button onClick={() => handleMarkAsReady(item.id)}>
+                  Mark as ready
+                </button>
               </div>
-              <div>
-                Price: <p>{item.price}€</p>
+            )
+          )}
+      </div>
+      {/*TODO*/}
+      <h1>Ready</h1>
+      <div className={styles.cards}>
+        {wishlistItems
+          ?.filter((item) => item.ready)
+          .map(
+            (item: {
+              id: number;
+              title: string;
+              price: number;
+              url: string;
+              image_url: string;
+              description: string;
+              ready: boolean;
+            }) => (
+              <div key={item.id} className={styles.card}>
+                <div>
+                  Title: <p>{item.title}</p>
+                </div>
+                <div>
+                  Price: <p>{item.price}€</p>
+                </div>
+                <div>
+                  Website:{" "}
+                  <p>
+                    <Link href={item.url} target="_blank">
+                      Link
+                    </Link>
+                  </p>
+                </div>
+                <div>
+                  Image:{" "}
+                  <p>
+                    <Link href={item.image_url} target="_blank">
+                      Link
+                    </Link>
+                  </p>
+                </div>
               </div>
-              <div>
-                Website:{" "}
-                <p>
-                  <Link href={item.url} target="_blank">
-                    Link
-                  </Link>
-                </p>
-              </div>
-              <div>
-                Image:{" "}
-                <p>
-                  <Link href={item.image_url} target="_blank">
-                    Link
-                  </Link>
-                </p>
-              </div>
-              <details>
-                <summary>Description</summary>
-                <p>{item.description}</p>
-              </details>
-              <button onClick={() => handleDelete(item.id)}>Delete</button>
-            </div>
-          )
-        )}
+            )
+          )}
       </div>
     </div>
   );

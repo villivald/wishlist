@@ -47,49 +47,51 @@ export default function Wishlist({ slug }: { slug: string }) {
     <div className={styles.container}>
       <h1>{currentWishlist[0]?.title}</h1>
       <div className={styles.cards}>
-        {wishlistItems?.map(
-          (item: {
-            id: number;
-            title: string;
-            price: number;
-            url: string;
-            image_url: string;
-            description: string;
-          }) => (
-            <div key={item.id} className={styles.card}>
-              <Link href={item.image_url} passHref target="_blank">
-                <Image
-                  src={
-                    item.image_url.substring(0, 4) === "http"
-                      ? item.image_url
-                      : "https://" + item.image_url
-                  }
-                  width={200}
-                  height={200}
-                  alt="Picture of the wishlist item"
-                />
-              </Link>
-              <div>
-                <p>Title:</p> <p>{item.title}</p>
+        {wishlistItems
+          ?.filter((item: { ready: boolean }) => !item.ready)
+          .map(
+            (item: {
+              id: number;
+              title: string;
+              price: number;
+              url: string;
+              image_url: string;
+              description: string;
+            }) => (
+              <div key={item.id} className={styles.card}>
+                <Link href={item.image_url} passHref target="_blank">
+                  <Image
+                    src={
+                      item.image_url.substring(0, 4) === "http"
+                        ? item.image_url
+                        : "https://" + item.image_url
+                    }
+                    width={200}
+                    height={200}
+                    alt="Picture of the wishlist item"
+                  />
+                </Link>
+                <div>
+                  <p>Title:</p> <p>{item.title}</p>
+                </div>
+                <div>
+                  <p>Price:</p> <p>{item.price}€</p>
+                </div>
+                <div>
+                  <p>Website:</p>{" "}
+                  <p>
+                    <Link href={item.url} passHref target="_blank">
+                      Link
+                    </Link>
+                  </p>
+                </div>
+                <details>
+                  <summary>Description</summary>
+                  <p>{item.description}</p>
+                </details>
               </div>
-              <div>
-                <p>Price:</p> <p>{item.price}€</p>
-              </div>
-              <div>
-                <p>Website:</p>{" "}
-                <p>
-                  <Link href={item.url} passHref target="_blank">
-                    Link
-                  </Link>
-                </p>
-              </div>
-              <details>
-                <summary>Description</summary>
-                <p>{item.description}</p>
-              </details>
-            </div>
-          )
-        )}
+            )
+          )}
       </div>
     </div>
   );

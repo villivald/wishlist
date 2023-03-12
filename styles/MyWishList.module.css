@@ -41,19 +41,26 @@
   white-space: nowrap;
 }
 
-.card > button {
+.card > button:first-of-type,
+.card > button:last-of-type {
   font-family: var(--font-subheader);
-  background-color: var(--color-brand-red);
   border: none;
   height: 2.25rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
+.card > button:first-of-type {
+  background-color: var(--color-brand-red);
+}
+
+.card > button:last-of-type {
+  background-color: var(--color-brand-green);
+}
 
 .card > button:hover {
   background-color: var(--color-brand-dark);
-  color: #fff;
+  color: var(--color-white);
 }
 
 .card > button:active {
