@@ -6,8 +6,8 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
   relationMode = "prisma"
 }
 
@@ -20,22 +20,22 @@ model User {
 
 // model for a single wishlist item
 model WishlistItem {
-  id          Int      @id @default(autoincrement())
+  id          Int     @id @default(autoincrement())
   title       String
   price       Float
-  url         String
-  image_url   String
+  url         String  @db.VarChar(500)
+  image_url   String  @db.VarChar(500)
   wishlist_id Int
   user_id     Int
-  description String
+  description String  @db.VarChar(500)
   ready       Boolean @default(false)
 }
 
 // model for a single wishlist
 model Wishlist {
-  id          Int             @id @default(autoincrement())
+  id          Int    @id @default(autoincrement())
   title       String
   description String
-  user_id     Int @unique
+  user_id     Int    @unique
   image_url   String
 }
