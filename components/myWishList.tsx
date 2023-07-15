@@ -69,6 +69,28 @@ export default function Wishlist({ session }: { session: any }) {
       });
   };
 
+  const handleMarkAsWanted = (id: number) => {
+    fetch("/api/update/markAsWanted", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setWishlistItems(
+          wishlistItems.map((item) => {
+            if (item.id === id) {
+              return data;
+            } else {
+              return item;
+            }
+          })
+        );
+      });
+  };
+
   return (
     <div
       className={styles.container}
@@ -165,6 +187,9 @@ export default function Wishlist({ session }: { session: any }) {
                     </Link>
                   </p>
                 </div>
+                <button onClick={() => handleMarkAsWanted(item.id)}>
+                  Put back on wishlist
+                </button>
               </div>
             )
           )}
