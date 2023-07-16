@@ -1,10 +1,15 @@
 "use client";
+
 import Link from "next/link";
 import { useEffect, useState } from "react";
+
+import Spinner from "@/components/spinner";
 
 import styles from "@/styles/MyWishList.module.css";
 
 export default function Wishlist({ session }: { session: any }) {
+  const [loading, setLoading] = useState(true);
+
   const [wishlistItems, setWishlistItems] = useState(
     [] as {
       id: number;
@@ -30,6 +35,7 @@ export default function Wishlist({ session }: { session: any }) {
       .then((res) => res.json())
       .then((data) => {
         setWishlistItems(data);
+        setLoading(false);
       });
   }, [session]);
 
@@ -101,99 +107,107 @@ export default function Wishlist({ session }: { session: any }) {
       // }}
     >
       <h1>My Wishlist</h1>
-      <div className={styles.cards}>
-        {wishlistItems
-          ?.filter((item) => !item.ready)
-          .map(
-            (item: {
-              id: number;
-              title: string;
-              price: number;
-              url: string;
-              image_url: string;
-              description: string;
-              ready: boolean;
-            }) => (
-              <div key={item.id} className={styles.card}>
-                <div>
-                  Title: <p>{item.title}</p>
-                </div>
-                <div>
-                  Price: <p>{item.price}€</p>
-                </div>
-                <div>
-                  Website:{" "}
-                  <p>
-                    <Link href={item.url} target="_blank">
-                      Link
-                    </Link>
-                  </p>
-                </div>
-                <div>
-                  Image:{" "}
-                  <p>
-                    <Link href={item.image_url} target="_blank">
-                      Link
-                    </Link>
-                  </p>
-                </div>
-                <details>
-                  <summary>Description</summary>
-                  <p>{item.description}</p>
-                </details>
-                <button onClick={() => handleDelete(item.id)}>Delete</button>
-                <button onClick={() => handleMarkAsReady(item.id)}>
-                  Mark as ready
-                </button>
-              </div>
-            )
-          )}
-      </div>
-      {/*TODO*/}
-      <h1>Ready</h1>
-      <div className={styles.cards}>
-        {wishlistItems
-          ?.filter((item) => item.ready)
-          .map(
-            (item: {
-              id: number;
-              title: string;
-              price: number;
-              url: string;
-              image_url: string;
-              description: string;
-              ready: boolean;
-            }) => (
-              <div key={item.id} className={styles.card}>
-                <div>
-                  Title: <p>{item.title}</p>
-                </div>
-                <div>
-                  Price: <p>{item.price}€</p>
-                </div>
-                <div>
-                  Website:{" "}
-                  <p>
-                    <Link href={item.url} target="_blank">
-                      Link
-                    </Link>
-                  </p>
-                </div>
-                <div>
-                  Image:{" "}
-                  <p>
-                    <Link href={item.image_url} target="_blank">
-                      Link
-                    </Link>
-                  </p>
-                </div>
-                <button onClick={() => handleMarkAsWanted(item.id)}>
-                  Put back on wishlist
-                </button>
-              </div>
-            )
-          )}
-      </div>
+      {loading ? (
+        <Spinner size="large" />
+      ) : (
+        <>
+          <div className={styles.cards}>
+            {wishlistItems
+              ?.filter((item) => !item.ready)
+              .map(
+                (item: {
+                  id: number;
+                  title: string;
+                  price: number;
+                  url: string;
+                  image_url: string;
+                  description: string;
+                  ready: boolean;
+                }) => (
+                  <div key={item.id} className={styles.card}>
+                    <div>
+                      Title: <p>{item.title}</p>
+                    </div>
+                    <div>
+                      Price: <p>{item.price}€</p>
+                    </div>
+                    <div>
+                      Website:{" "}
+                      <p>
+                        <Link href={item.url} target="_blank">
+                          Link
+                        </Link>
+                      </p>
+                    </div>
+                    <div>
+                      Image:{" "}
+                      <p>
+                        <Link href={item.image_url} target="_blank">
+                          Link
+                        </Link>
+                      </p>
+                    </div>
+                    <details>
+                      <summary>Description</summary>
+                      <p>{item.description}</p>
+                    </details>
+                    <button onClick={() => handleDelete(item.id)}>
+                      Delete
+                    </button>
+                    <button onClick={() => handleMarkAsReady(item.id)}>
+                      Mark as ready
+                    </button>
+                  </div>
+                )
+              )}
+          </div>
+          {/*TODO*/}
+          <h1>Ready</h1>
+          <div className={styles.cards}>
+            {wishlistItems
+              ?.filter((item) => item.ready)
+              .map(
+                (item: {
+                  id: number;
+                  title: string;
+                  price: number;
+                  url: string;
+                  image_url: string;
+                  description: string;
+                  ready: boolean;
+                }) => (
+                  <div key={item.id} className={styles.card}>
+                    <div>
+                      Title: <p>{item.title}</p>
+                    </div>
+                    <div>
+                      Price: <p>{item.price}€</p>
+                    </div>
+                    <div>
+                      Website:{" "}
+                      <p>
+                        <Link href={item.url} target="_blank">
+                          Link
+                        </Link>
+                      </p>
+                    </div>
+                    <div>
+                      Image:{" "}
+                      <p>
+                        <Link href={item.image_url} target="_blank">
+                          Link
+                        </Link>
+                      </p>
+                    </div>
+                    <button onClick={() => handleMarkAsWanted(item.id)}>
+                      Put back on wishlist
+                    </button>
+                  </div>
+                )
+              )}
+          </div>
+        </>
+      )}
     </div>
   );
 }
