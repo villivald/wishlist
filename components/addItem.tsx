@@ -67,7 +67,7 @@ export default function AddItem({ session }: { session: any }) {
     >
       <h1>Add a new item</h1>
       <div>
-        <label htmlFor="title">Title</label>
+        <label htmlFor="title">Title: *</label>
         <input
           id="title"
           name="title"
@@ -77,7 +77,7 @@ export default function AddItem({ session }: { session: any }) {
         />
       </div>
       <div>
-        <label htmlFor="price">Price</label>
+        <label htmlFor="price">Price: *</label>
         <input
           id="price"
           name="price"
@@ -88,7 +88,7 @@ export default function AddItem({ session }: { session: any }) {
         />
       </div>
       <div>
-        <label htmlFor="url">Url</label>
+        <label htmlFor="url">URL: *</label>
         <input
           id="url"
           name="url"
@@ -99,7 +99,7 @@ export default function AddItem({ session }: { session: any }) {
         />
       </div>
       <div>
-        <label htmlFor="image_url">Image url</label>
+        <label htmlFor="image_url">Image URL: *</label>
         <input
           id="image_url"
           name="image_url"
@@ -125,7 +125,7 @@ export default function AddItem({ session }: { session: any }) {
         </p>
       </div>
       <div>
-        <label htmlFor="description">Description</label>
+        <label htmlFor="description">Description: *</label>
         <textarea
           id="description"
           name="description"
