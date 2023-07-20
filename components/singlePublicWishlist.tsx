@@ -80,23 +80,29 @@ export default function Wishlist({ slug }: { slug: string }) {
                     />
                   </Link>
                   <div>
-                    <p>Title:</p> <p>{item.title}</p>
+                    <div>
+                      <strong>Title:</strong> <p>{item.title}</p>
+                    </div>
+                    <div>
+                      <strong>Price:</strong> <p>{item.price}€</p>
+                    </div>
+                    <div>
+                      <p>
+                        <strong>Website:</strong>
+                      </p>
+                      <p>
+                        <Link href={item.url} passHref target="_blank">
+                          Link
+                        </Link>
+                      </p>
+                    </div>
+                    <details>
+                      <summary>
+                        <strong>Description</strong>
+                      </summary>
+                      <p>{item.description}</p>
+                    </details>
                   </div>
-                  <div>
-                    <p>Price:</p> <p>{item.price}€</p>
-                  </div>
-                  <div>
-                    <p>Website:</p>{" "}
-                    <p>
-                      <Link href={item.url} passHref target="_blank">
-                        Link
-                      </Link>
-                    </p>
-                  </div>
-                  <details>
-                    <summary>Description</summary>
-                    <p>{item.description}</p>
-                  </details>
                 </div>
               )
             )}

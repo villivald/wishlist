@@ -1,7 +1,10 @@
 "use client";
+
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+
+import LoadingDots from "@/components/loading-dots";
 
 import styles from "@/styles/AddItem.module.css";
 
@@ -13,6 +16,8 @@ export default function AddItem({ session }: { session: any }) {
   const [url, setUrl] = useState("");
   const [image_url, setImageUrl] = useState("");
   const [description, setDescription] = useState("");
+
+  const [loading, setLoading] = useState(false);
 
   const isDisabled = () => {
     if (
@@ -31,6 +36,7 @@ export default function AddItem({ session }: { session: any }) {
     <form
       className={styles.form}
       onSubmit={(e) => {
+        setLoading(true);
         e.preventDefault();
         fetch("/api/add/addItem", {
           method: "POST",
@@ -39,7 +45,6 @@ export default function AddItem({ session }: { session: any }) {
           },
           body: JSON.stringify({
             email: session?.user.email,
-            // @ts-ignore
             title: title,
             price: parseFloat(price),
             url: url,
@@ -48,11 +53,13 @@ export default function AddItem({ session }: { session: any }) {
           }),
         }).then(async (res) => {
           if (res.status === 200) {
+            setLoading(false);
             toast.success("Item added!");
             setTimeout(() => {
               router.push("/protected");
             }, 2000);
           } else {
+            setLoading(false);
             toast.error(await res.text());
           }
         });
@@ -139,7 +146,7 @@ export default function AddItem({ session }: { session: any }) {
         type="submit"
         className={isDisabled() ? styles.disabledButton : styles.button}
       >
-        Add
+        {loading ? <LoadingDots /> : "Add"}
       </button>
     </form>
   );

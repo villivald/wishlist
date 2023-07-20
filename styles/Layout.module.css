@@ -27,7 +27,6 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-right: 2rem;
 }
 
 .menu > span:nth-child(2) {

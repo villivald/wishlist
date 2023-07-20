@@ -5,11 +5,13 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 import Spinner from "@/components/spinner";
+import LoadingDots from "@/components/loading-dots";
 
 import styles from "@/styles/MyWishList.module.css";
 
 export default function Wishlist({ session }: { session: any }) {
   const [loading, setLoading] = useState(true);
+  const [itemProcessOngoing, setItemProcessOngoing] = useState(0);
 
   const [wishlistItems, setWishlistItems] = useState(
     [] as {
@@ -41,6 +43,7 @@ export default function Wishlist({ session }: { session: any }) {
   }, [session]);
 
   const handleDelete = (id: number) => {
+    setItemProcessOngoing(id);
     fetch("/api/delete/deleteItem", {
       method: "POST",
       headers: {
@@ -49,12 +52,14 @@ export default function Wishlist({ session }: { session: any }) {
       body: JSON.stringify({ id }),
     }).then((res) => {
       if (res.status === 200) {
+        setItemProcessOngoing(0);
         setWishlistItems(wishlistItems.filter((item) => item.id !== id));
       }
     });
   };
 
   const handleMarkAsReady = (id: number) => {
+    setItemProcessOngoing(id);
     fetch("/api/update/markAsReady", {
       method: "POST",
       headers: {
@@ -64,6 +69,7 @@ export default function Wishlist({ session }: { session: any }) {
     })
       .then((res) => res.json())
       .then((data) => {
+        setItemProcessOngoing(0);
         setWishlistItems(
           wishlistItems.map((item) => {
             if (item.id === id) {
@@ -77,6 +83,7 @@ export default function Wishlist({ session }: { session: any }) {
   };
 
   const handleMarkAsWanted = (id: number) => {
+    setItemProcessOngoing(id);
     fetch("/api/update/markAsWanted", {
       method: "POST",
       headers: {
@@ -86,6 +93,7 @@ export default function Wishlist({ session }: { session: any }) {
     })
       .then((res) => res.json())
       .then((data) => {
+        setItemProcessOngoing(0);
         setWishlistItems(
           wishlistItems.map((item) => {
             if (item.id === id) {
@@ -148,11 +156,25 @@ export default function Wishlist({ session }: { session: any }) {
                       </details>
                     </div>
                     <div>
-                      <button onClick={() => handleDelete(item.id)}>
-                        Delete
+                      <button
+                        disabled={Boolean(itemProcessOngoing)}
+                        onClick={() => handleDelete(item.id)}
+                      >
+                        {itemProcessOngoing === item.id ? (
+                          <LoadingDots />
+                        ) : (
+                          "Delete"
+                        )}
                       </button>
-                      <button onClick={() => handleMarkAsReady(item.id)}>
-                        Mark as ready
+                      <button
+                        disabled={Boolean(itemProcessOngoing)}
+                        onClick={() => handleMarkAsReady(item.id)}
+                      >
+                        {itemProcessOngoing === item.id ? (
+                          <LoadingDots />
+                        ) : (
+                          "Mark as ready"
+                        )}
                       </button>
                     </div>
                   </div>
@@ -203,8 +225,15 @@ export default function Wishlist({ session }: { session: any }) {
                       </details>
                     </div>
                     <div>
-                      <button onClick={() => handleMarkAsWanted(item.id)}>
-                        Put back on wishlist
+                      <button
+                        disabled={Boolean(itemProcessOngoing)}
+                        onClick={() => handleMarkAsWanted(item.id)}
+                      >
+                        {itemProcessOngoing === item.id ? (
+                          <LoadingDots />
+                        ) : (
+                          "Mark as wanted"
+                        )}
                       </button>
                     </div>
                   </div>
