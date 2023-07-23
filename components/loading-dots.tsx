@@ -1,6 +1,6 @@
 import styles from "@/styles/LoadingDots.module.css";
 
-const LoadingDots = () => {
+export default function LoadingDots() {
   return (
     <span className={styles.loading}>
       <span />
@@ -8,6 +8,4 @@ const LoadingDots = () => {
       <span />
     </span>
   );
-};
-
-export default LoadingDots;
+}

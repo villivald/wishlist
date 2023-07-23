@@ -6,6 +6,8 @@
 .container h1 {
   text-align: center;
   padding-top: 1rem;
+  font-family: var(--font-brand);
+  font-size: calc(var(--fontSize-header1) * 1.5);
 }
 
 .cards {
@@ -19,7 +21,7 @@
 .card {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-brand-grey);
   padding: 1rem;
   gap: 0.5rem;
   border-radius: 5px;
@@ -40,5 +42,13 @@
 @media (max-width: 850px) {
   .cards {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .container h1 {
+    font-family: var(--font-header);
+    color: var(--color-brand-teal);
+    text-shadow: 2px 2px var(--color-brand-yellow-saturated);
   }
 }

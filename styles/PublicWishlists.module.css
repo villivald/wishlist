@@ -8,6 +8,9 @@
 .container h1 {
   text-align: center;
   margin: 1rem 0;
+  color: var(--color-white);
+  background-color: var(--color-brand-teal);
+  min-width: calc(100vw - 2rem);
 }
 
 .wishlists {
