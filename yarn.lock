@@ -88,22 +88,22 @@
     "semver" "^7.3.5"
     "tar" "^6.1.11"
 
-"@next/env@13.4.10":
-  "integrity" "sha512-3G1yD/XKTSLdihyDSa8JEsaWOELY+OWe08o0LUYzfuHp1zHDA8SObQlzKt+v+wrkkPcnPweoLH1ImZeUa0A1NQ=="
-  "resolved" "https://registry.npmjs.org/@next/env/-/env-13.4.10.tgz"
-  "version" "13.4.10"
+"@next/env@13.4.12":
+  "integrity" "sha512-RmHanbV21saP/6OEPBJ7yJMuys68cIf8OBBWd7+uj40LdpmswVAwe1uzeuFyUsd6SfeITWT3XnQfn6wULeKwDQ=="
+  "resolved" "https://registry.npmjs.org/@next/env/-/env-13.4.12.tgz"
+  "version" "13.4.12"
 
-"@next/eslint-plugin-next@13.4.10":
-  "integrity" "sha512-YJqyq6vk39JQfvaNtN83t/p5Jy45+bazRL+V4QI8FPd3FBqFYMEsULiwRLgSJMgFqkk4t4JbeZurz+gILEAFpA=="
-  "resolved" "https://registry.npmjs.org/@next/eslint-plugin-next/-/eslint-plugin-next-13.4.10.tgz"
-  "version" "13.4.10"
+"@next/eslint-plugin-next@13.4.12":
+  "integrity" "sha512-6rhK9CdxEgj/j1qvXIyLTWEaeFv7zOK8yJMulz3Owel0uek0U9MJCGzmKgYxM3aAUBo3gKeywCZKyQnJKto60A=="
+  "resolved" "https://registry.npmjs.org/@next/eslint-plugin-next/-/eslint-plugin-next-13.4.12.tgz"
+  "version" "13.4.12"
   dependencies:
     "glob" "7.1.7"
 
-"@next/swc-darwin-arm64@13.4.10":
-  "integrity" "sha512-4bsdfKmmg7mgFGph0UorD1xWfZ5jZEw4kKRHYEeTK9bT1QnMbPVPlVXQRIiFPrhoDQnZUoa6duuPUJIEGLV1Jg=="
-  "resolved" "https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-13.4.10.tgz"
-  "version" "13.4.10"
+"@next/swc-darwin-arm64@13.4.12":
+  "integrity" "sha512-deUrbCXTMZ6ZhbOoloqecnUeNpUOupi8SE2tx4jPfNS9uyUR9zK4iXBvH65opVcA/9F5I/p8vDXSYbUlbmBjZg=="
+  "resolved" "https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-13.4.12.tgz"
+  "version" "13.4.12"
 
 "@nodelib/fs.scandir@2.1.5":
   "integrity" "sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g=="
@@ -184,10 +184,10 @@
   "resolved" "https://registry.npmjs.org/@types/json5/-/json5-0.0.29.tgz"
   "version" "0.0.29"
 
-"@types/node@*", "@types/node@^20.4.2":
-  "integrity" "sha512-Dd0BYtWgnWJKwO1jkmTrzofjK2QXXcai0dmtzvIBhcA+RsG5h8R3xlyta0kGOZRNfL9GuRtb1knmPEhQrePCEw=="
-  "resolved" "https://registry.npmjs.org/@types/node/-/node-20.4.2.tgz"
-  "version" "20.4.2"
+"@types/node@*", "@types/node@^20.4.4":
+  "integrity" "sha512-CukZhumInROvLq3+b5gLev+vgpsIqC2D0deQr/yS1WnxvmYLlJXZpaQrQiseMY+6xusl79E04UjWoqyr+t1/Ew=="
+  "resolved" "https://registry.npmjs.org/@types/node/-/node-20.4.4.tgz"
+  "version" "20.4.4"
 
 "@types/prop-types@*":
   "integrity" "sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w=="
@@ -650,12 +650,12 @@
   "resolved" "https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz"
   "version" "4.0.0"
 
-"eslint-config-next@^13.4.10":
-  "integrity" "sha512-+JjcM6lQmFR5Mw0ORm9o1CR29+z/uajgSfYAPEGIBxOhTHBgCMs7ysuwi72o7LkMmA8E3N7/h09pSGZxs0s85g=="
-  "resolved" "https://registry.npmjs.org/eslint-config-next/-/eslint-config-next-13.4.10.tgz"
-  "version" "13.4.10"
+"eslint-config-next@^13.4.12":
+  "integrity" "sha512-ZF0r5vxKaVazyZH/37Au/XItiG7qUOBw+HaH3PeyXltIMwXorsn6bdrl0Nn9N5v5v9spc+6GM2ryjugbjF6X2g=="
+  "resolved" "https://registry.npmjs.org/eslint-config-next/-/eslint-config-next-13.4.12.tgz"
+  "version" "13.4.12"
   dependencies:
-    "@next/eslint-plugin-next" "13.4.10"
+    "@next/eslint-plugin-next" "13.4.12"
     "@rushstack/eslint-patch" "^1.1.3"
     "@typescript-eslint/parser" "^5.42.0"
     "eslint-import-resolver-node" "^0.3.6"
@@ -1444,10 +1444,10 @@
   "resolved" "https://registry.npmjs.org/natural-compare/-/natural-compare-1.4.0.tgz"
   "version" "1.4.0"
 
-"next-auth@^4.22.1":
-  "integrity" "sha512-NTR3f6W7/AWXKw8GSsgSyQcDW6jkslZLH8AiZa5PQ09w1kR8uHtR9rez/E9gAq/o17+p0JYHE8QjF3RoniiObA=="
-  "resolved" "https://registry.npmjs.org/next-auth/-/next-auth-4.22.1.tgz"
-  "version" "4.22.1"
+"next-auth@^4.22.3":
+  "integrity" "sha512-XAgy9xV3J2eJOXrQhmxdjV6MLM29ibm6WtMXc3KY6IPZeApf+SuBuPvlqCUfbu5YsAzlg9WSw6u01dChTfeZOA=="
+  "resolved" "https://registry.npmjs.org/next-auth/-/next-auth-4.22.3.tgz"
+  "version" "4.22.3"
   dependencies:
     "@babel/runtime" "^7.20.13"
     "@panva/hkdf" "^1.0.2"
@@ -1459,12 +1459,12 @@
     "preact-render-to-string" "^5.1.19"
     "uuid" "^8.3.2"
 
-"next@^12.2.5 || ^13", "next@^13.4.10":
-  "integrity" "sha512-4ep6aKxVTQ7rkUW2fBLhpBr/5oceCuf4KmlUpvG/aXuDTIf9mexNSpabUD6RWPspu6wiJJvozZREhXhueYO36A=="
-  "resolved" "https://registry.npmjs.org/next/-/next-13.4.10.tgz"
-  "version" "13.4.10"
+"next@^12.2.5 || ^13", "next@^13.4.12":
+  "integrity" "sha512-eHfnru9x6NRmTMcjQp6Nz0J4XH9OubmzOa7CkWL+AUrUxpibub3vWwttjduu9No16dug1kq04hiUUpo7J3m3Xw=="
+  "resolved" "https://registry.npmjs.org/next/-/next-13.4.12.tgz"
+  "version" "13.4.12"
   dependencies:
-    "@next/env" "13.4.10"
+    "@next/env" "13.4.12"
     "@swc/helpers" "0.5.1"
     "busboy" "1.6.0"
     "caniuse-lite" "^1.0.30001406"
@@ -1473,15 +1473,15 @@
     "watchpack" "2.4.0"
     "zod" "3.21.4"
   optionalDependencies:
-    "@next/swc-darwin-arm64" "13.4.10"
-    "@next/swc-darwin-x64" "13.4.10"
-    "@next/swc-linux-arm64-gnu" "13.4.10"
-    "@next/swc-linux-arm64-musl" "13.4.10"
-    "@next/swc-linux-x64-gnu" "13.4.10"
-    "@next/swc-linux-x64-musl" "13.4.10"
-    "@next/swc-win32-arm64-msvc" "13.4.10"
-    "@next/swc-win32-ia32-msvc" "13.4.10"
-    "@next/swc-win32-x64-msvc" "13.4.10"
+    "@next/swc-darwin-arm64" "13.4.12"
+    "@next/swc-darwin-x64" "13.4.12"
+    "@next/swc-linux-arm64-gnu" "13.4.12"
+    "@next/swc-linux-arm64-musl" "13.4.12"
+    "@next/swc-linux-x64-gnu" "13.4.12"
+    "@next/swc-linux-x64-musl" "13.4.12"
+    "@next/swc-win32-arm64-msvc" "13.4.12"
+    "@next/swc-win32-ia32-msvc" "13.4.12"
+    "@next/swc-win32-x64-msvc" "13.4.12"
 
 "node-addon-api@^5.0.0":
   "integrity" "sha512-CvkDw2OEnme7ybCykJpVcKH+uAOLV2qLqiyla128dN9TkEWfrYmxG6C2boDe5KcNQqZF3orkqzGgOMvZ/JNekA=="
