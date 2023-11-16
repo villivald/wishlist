@@ -40,7 +40,7 @@ export default function Wishlist({ session }: { session: any }) {
         setWishlistItems(data);
         setLoading(false);
       });
-  }, [session]);
+  }, [session, wishlistItems]);
 
   const handleDelete = (id: number) => {
     setItemProcessOngoing(id);
@@ -138,7 +138,13 @@ export default function Wishlist({ session }: { session: any }) {
                         <strong>Title:</strong> <p>{item.title}</p>
                       </div>
                       <div>
-                        <strong>Price:</strong> <p>{item.price}€</p>
+                        <strong>Price:</strong>
+                        <p>
+                          {item.price}
+                          {item.price.includes("$") || item.price.includes("€")
+                            ? ""
+                            : "€"}
+                        </p>
                       </div>
                       <div>
                         <strong>Website:</strong>
@@ -207,7 +213,13 @@ export default function Wishlist({ session }: { session: any }) {
                         <strong>Title:</strong> <p>{item.title}</p>
                       </div>
                       <div>
-                        <strong>Price:</strong> <p>{item.price}€</p>
+                        <strong>Price:</strong>
+                        <p>
+                          {item.price}
+                          {item.price.includes("$") || item.price.includes("€")
+                            ? ""
+                            : "€"}
+                        </p>
                       </div>
                       <div>
                         <strong>Website:</strong>
