@@ -61,7 +61,7 @@ export default function Wishlist({ slug }: { slug: string }) {
               (item: {
                 id: number;
                 title: string;
-                price: number;
+                price: string;
                 url: string;
                 image_url: string;
                 description: string;

@@ -46,7 +46,7 @@ export default function AddItem({ session }: { session: any }) {
           body: JSON.stringify({
             email: session?.user.email,
             title: title,
-            price: parseFloat(price),
+            price: price,
             url: url,
             image_url: image_url,
             description: description,
@@ -78,7 +78,8 @@ export default function AddItem({ session }: { session: any }) {
         <input
           id="title"
           name="title"
-          placeholder="The new iPhone"
+          placeholder="iPhone Pro 17"
+          type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
@@ -88,8 +89,8 @@ export default function AddItem({ session }: { session: any }) {
         <input
           id="price"
           name="price"
-          type="number"
-          placeholder="1000"
+          placeholder="1000€"
+          type="text"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
         />
@@ -100,7 +101,7 @@ export default function AddItem({ session }: { session: any }) {
           id="url"
           name="url"
           placeholder="https://www.apple.com"
-          type="string"
+          type="text"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
         />
@@ -110,7 +111,7 @@ export default function AddItem({ session }: { session: any }) {
         <input
           id="image_url"
           name="image_url"
-          type="string"
+          type="text"
           placeholder="https://www.apple.com/iphone.jpg"
           value={image_url}
           onChange={(e) => setImageUrl(e.target.value)}

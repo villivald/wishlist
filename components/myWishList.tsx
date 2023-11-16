@@ -17,7 +17,7 @@ export default function Wishlist({ session }: { session: any }) {
     [] as {
       id: number;
       title: string;
-      price: number;
+      price: string;
       url: string;
       image_url: string;
       description: string;
@@ -120,7 +120,7 @@ export default function Wishlist({ session }: { session: any }) {
                 (item: {
                   id: number;
                   title: string;
-                  price: number;
+                  price: string;
                   url: string;
                   image_url: string;
                   description: string;
@@ -189,7 +189,7 @@ export default function Wishlist({ session }: { session: any }) {
                 (item: {
                   id: number;
                   title: string;
-                  price: number;
+                  price: string;
                   url: string;
                   image_url: string;
                   description: string;

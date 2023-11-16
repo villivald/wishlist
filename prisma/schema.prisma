@@ -22,7 +22,7 @@ model User {
 model WishlistItem {
   id          Int     @id @default(autoincrement())
   title       String
-  price       Float
+  price       String  @db.VarChar(500)
   url         String  @db.VarChar(500)
   image_url   String  @db.VarChar(500)
   wishlist_id Int
