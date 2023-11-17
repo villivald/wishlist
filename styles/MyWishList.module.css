@@ -50,29 +50,37 @@
   align-items: center;
 }
 
-.card > div > button:first-of-type,
-.card > div > button:last-of-type {
-  font-family: var(--font-subheader);
-  border: none;
+.card > div > button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   height: 2.25rem;
-  font-weight: 600;
-  cursor: pointer;
   padding: 0 1rem;
-  transition: all 0.2s ease-in-out;
+  font-family: var(--font-subheader);
+  font-weight: 600;
   color: var(--color-black);
+  background-color: var(--color-white);
+  border: 0.25rem solid transparent;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
 .card > div > button:first-of-type {
-  background-color: var(--color-brand-red);
+  border-color: var(--color-brand-red);
 }
 
 .card > div > button:last-of-type {
-  background-color: var(--color-brand-green);
+  border-color: var(--color-brand-green);
 }
 
 .card > div > button:hover {
   background-color: var(--color-brand-dark);
   color: var(--color-white);
+
+  & .repeatButton {
+    filter: invert(100%);
+  }
 }
 
 .card > div > button:active {

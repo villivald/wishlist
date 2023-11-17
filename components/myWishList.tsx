@@ -171,6 +171,12 @@ export default function Wishlist({ session }: { session: any }) {
                         ) : (
                           "Delete"
                         )}
+                        <Image
+                          src="/delete.svg"
+                          alt="Delete icon - garbage can"
+                          width={24}
+                          height={24}
+                        />
                       </button>
                       <button
                         disabled={Boolean(itemProcessOngoing)}
@@ -181,6 +187,12 @@ export default function Wishlist({ session }: { session: any }) {
                         ) : (
                           "Mark as ready"
                         )}
+                        <Image
+                          src="/check.svg"
+                          alt="Check icon - checkmark"
+                          width={24}
+                          height={24}
+                        />
                       </button>
                     </div>
                   </div>
@@ -239,13 +251,36 @@ export default function Wishlist({ session }: { session: any }) {
                     <div>
                       <button
                         disabled={Boolean(itemProcessOngoing)}
+                        onClick={() => handleDelete(item.id)}
+                      >
+                        {itemProcessOngoing === item.id ? (
+                          <LoadingDots />
+                        ) : (
+                          "Delete"
+                        )}
+                        <Image
+                          src="/delete.svg"
+                          alt="Delete icon - garbage can"
+                          width={24}
+                          height={24}
+                        />
+                      </button>
+                      <button
+                        disabled={Boolean(itemProcessOngoing)}
                         onClick={() => handleMarkAsWanted(item.id)}
                       >
                         {itemProcessOngoing === item.id ? (
                           <LoadingDots />
                         ) : (
-                          "Mark as wanted"
+                          "Back to wishlist"
                         )}
+                        <Image
+                          className={styles.repeatButton}
+                          src="/repeat.svg"
+                          alt="Repeat icon - arrow"
+                          width={24}
+                          height={24}
+                        />
                       </button>
                     </div>
                   </div>
