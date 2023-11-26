@@ -1,10 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
 import LoadingDots from "@/components/loading-dots";
+
+import { AppContext } from "../app/providers";
 
 import styles from "@/styles/AddItem.module.css";
 
@@ -17,7 +19,7 @@ export default function AddItem({ session }: { session: any }) {
   const [image_url, setImageUrl] = useState("");
   const [description, setDescription] = useState("");
 
-  const [loading, setLoading] = useState(false);
+  const { loading, setLoading } = useContext(AppContext);
 
   const isDisabled = () => {
     if (
@@ -55,9 +57,7 @@ export default function AddItem({ session }: { session: any }) {
           if (res.status === 200) {
             setLoading(false);
             toast.success("Item added!");
-            setTimeout(() => {
-              router.push("/protected");
-            }, 2000);
+            router.push("/protected");
           } else {
             setLoading(false);
             toast.error(await res.text());

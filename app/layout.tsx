@@ -9,6 +9,8 @@ import "@/styles/globals.css";
 import styles from "@/styles/Layout.module.css";
 import DesktopHeaderNav from "@/components/desktopHeaderNav";
 
+import { AppProvider } from "./providers";
+
 export default async function RootLayout({
   children,
 }: {
@@ -19,23 +21,25 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        <menu className={styles.menu}>
-          <DesktopHeaderNav />
-          <MobileHeaderNav />
-          <Toaster />
-          <div>
-            {session ? (
-              <p>
-                <span>Signed in as {session.user?.email}</span> <SignOut />
-              </p>
-            ) : (
-              <p>
-                <Link href="/login">Sign in</Link>
-              </p>
-            )}
-          </div>
-        </menu>
-        {children}
+        <AppProvider>
+          <menu className={styles.menu}>
+            <DesktopHeaderNav />
+            <MobileHeaderNav />
+            <Toaster />
+            <div>
+              {session ? (
+                <p>
+                  <span>Signed in as {session.user?.email}</span> <SignOut />
+                </p>
+              ) : (
+                <p>
+                  <Link href="/login">Sign in</Link>
+                </p>
+              )}
+            </div>
+          </menu>
+          {children}
+        </AppProvider>
       </body>
     </html>
   );
