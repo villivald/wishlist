@@ -119,7 +119,8 @@ export default function Wishlist({ session }: { session: any }) {
     title: string,
     price: string,
     url: string,
-    description: string
+    description: string,
+    image_url: string
   ) => {
     setEditMode(0);
     setItemProcessOngoing(id);
@@ -135,6 +136,7 @@ export default function Wishlist({ session }: { session: any }) {
         price,
         url,
         description,
+        image_url,
       }),
     })
       .then((res) => res.json())
@@ -179,7 +181,7 @@ export default function Wishlist({ session }: { session: any }) {
                       width={200}
                       height={200}
                     />
-                    <div>
+                    <div data-editmode={editMode === item.id}>
                       <div>
                         <strong>Title:</strong>
                         {editMode === item.id ? (
@@ -232,7 +234,7 @@ export default function Wishlist({ session }: { session: any }) {
                           </p>
                         )}
                       </div>
-                      <details>
+                      <details open={editMode === item.id}>
                         <summary>
                           <strong>Description</strong>
                         </summary>
@@ -247,69 +249,94 @@ export default function Wishlist({ session }: { session: any }) {
                           <p>{item.description}</p>
                         )}
                       </details>
+                      {editMode === item.id && (
+                        <div>
+                          <strong>Image URL:</strong>
+                          <input
+                            type="text"
+                            defaultValue={item.image_url}
+                            onChange={(e) => {
+                              item.image_url = e.target.value;
+                            }}
+                          />
+                        </div>
+                      )}
                     </div>
                     <div>
-                      <button
-                        disabled={Boolean(itemProcessOngoing)}
-                        onClick={() => handleDelete(item.id)}
-                      >
-                        {itemProcessOngoing === item.id ? (
-                          <LoadingDots />
-                        ) : (
-                          "Delete"
-                        )}
-                        <Image
-                          src="/delete.svg"
-                          alt="Delete icon - garbage can"
-                          width={24}
-                          height={24}
-                        />
-                      </button>
-                      <button
-                        disabled={Boolean(itemProcessOngoing)}
-                        onClick={() => handleMarkAsReady(item.id)}
-                      >
-                        {itemProcessOngoing === item.id ? (
-                          <LoadingDots />
-                        ) : (
-                          "Mark as ready"
-                        )}
-                        <Image
-                          src="/check.svg"
-                          alt="Check icon - checkmark"
-                          width={24}
-                          height={24}
-                        />
-                      </button>
-                      {itemProcessOngoing === item.id ? (
-                        <LoadingDots />
-                      ) : editMode === item.id ? (
-                        <button
-                          data-id="save-button"
-                          onClick={() =>
-                            handleUpdateItem(
-                              item.id,
-                              item.title,
-                              item.price,
-                              item.url,
-                              item.description
-                            )
-                          }
-                        >
-                          Save
-                        </button>
+                      {editMode !== item.id ? (
+                        <>
+                          <button
+                            disabled={Boolean(itemProcessOngoing)}
+                            onClick={() => handleDelete(item.id)}
+                          >
+                            {itemProcessOngoing === item.id ? (
+                              <LoadingDots />
+                            ) : (
+                              "Delete"
+                            )}
+                            <Image
+                              src="/delete.svg"
+                              alt="Delete icon - garbage can"
+                              width={24}
+                              height={24}
+                            />
+                          </button>
+                          <button
+                            disabled={Boolean(itemProcessOngoing)}
+                            onClick={() => handleMarkAsReady(item.id)}
+                          >
+                            {itemProcessOngoing === item.id ? (
+                              <LoadingDots />
+                            ) : (
+                              "Mark as ready"
+                            )}
+                            <Image
+                              src="/check.svg"
+                              alt="Check icon - checkmark"
+                              width={24}
+                              height={24}
+                            />
+                          </button>
+                          <button
+                            data-id="edit-button"
+                            onClick={() => handleTurnOnEditMode(item.id)}
+                          >
+                            {itemProcessOngoing === item.id ? (
+                              <LoadingDots />
+                            ) : (
+                              <Image
+                                src="/edit.svg"
+                                alt="Edit icon - pencil"
+                                width={24}
+                                height={24}
+                              />
+                            )}
+                          </button>
+                        </>
                       ) : (
-                        <button
-                          data-id="edit-button"
-                          onClick={() => handleTurnOnEditMode(item.id)}
-                        >
-                          <Image
-                            src="/edit.svg"
-                            alt="Edit icon - pencil"
-                            width={24}
-                            height={24}
-                          />
-                        </button>
+                        <>
+                          <button
+                            data-id="save-button"
+                            onClick={() =>
+                              handleUpdateItem(
+                                item.id,
+                                item.title,
+                                item.price,
+                                item.url,
+                                item.description,
+                                item.image_url
+                              )
+                            }
+                          >
+                            Save
+                          </button>
+                          <button
+                            data-id="cancel-button"
+                            onClick={() => setEditMode(0)}
+                          >
+                            Cancel
+                          </button>
+                        </>
                       )}
                     </div>
                   </div>
@@ -383,6 +410,7 @@ export default function Wishlist({ session }: { session: any }) {
                         />
                       </button>
                       <button
+                        data-id="return-button"
                         disabled={Boolean(itemProcessOngoing)}
                         onClick={() => handleMarkAsWanted(item.id)}
                       >

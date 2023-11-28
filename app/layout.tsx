@@ -4,12 +4,12 @@ import Toaster from "@/components/toaster";
 import AuthStatus from "@/components/auth-status";
 import SignOut from "@/components/sign-out";
 import MobileHeaderNav from "@/components/mobileHeaderNav";
-
-import "@/styles/globals.css";
-import styles from "@/styles/Layout.module.css";
 import DesktopHeaderNav from "@/components/desktopHeaderNav";
 
 import { AppProvider } from "./providers";
+
+import "@/styles/globals.css";
+import styles from "@/styles/Layout.module.css";
 
 export default async function RootLayout({
   children,
