@@ -57,7 +57,7 @@ export default function AddItem({ session }: { session: any }) {
           if (res.status === 200) {
             setLoading(false);
             toast.success("Item added!");
-            router.push("/protected");
+            router.push("/mywishlist");
           } else {
             setLoading(false);
             toast.error(await res.text());

@@ -12,7 +12,7 @@ export default function MobileHeaderNav() {
   const getPathActive = (path: string) => {
     if (path === "/") {
       return "home";
-    } else if (path === "/protected") {
+    } else if (path === "/mywishlist") {
       return "profile";
     } else {
       return "list";
@@ -29,7 +29,7 @@ export default function MobileHeaderNav() {
         <Image src="/home.svg" alt="Logo" width={24} height={24} />
       </Link>
       <Link
-        href="/protected"
+        href="/mywishlist"
         prefetch={false}
         data-active={getPathActive(path as string) === "profile"}
       >

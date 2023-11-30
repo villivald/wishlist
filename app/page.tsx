@@ -10,7 +10,7 @@ export default function Home() {
           <span></span>
           <span></span>
         </span>
-        <Link href="/protected" prefetch={false}>
+        <Link href="/mywishlist" prefetch={false}>
           WISHLIST
         </Link>
         <span>

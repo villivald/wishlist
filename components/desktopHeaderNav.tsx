@@ -11,7 +11,7 @@ export default function DesktopHeaderNav() {
   const getPathActive = (path: string) => {
     if (path === "/") {
       return "home";
-    } else if (path === "/protected") {
+    } else if (path === "/mywishlist") {
       return "profile";
     } else {
       return "list";
@@ -24,7 +24,7 @@ export default function DesktopHeaderNav() {
         Home page
       </Link>
       <Link
-        href="/protected"
+        href="/mywishlist"
         prefetch={false}
         data-active={getPathActive(path as string) === "profile"}
       >
