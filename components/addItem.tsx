@@ -4,7 +4,7 @@ import { useState, useContext } from "react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
-import LoadingDots from "@/components/loading-dots";
+import LoadingDots from "@/components/common/loading-dots";
 
 import { AppContext } from "../app/providers";
 

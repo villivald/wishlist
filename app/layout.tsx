@@ -1,10 +1,9 @@
-import Link from "next/link";
-
-import Toaster from "@/components/toaster";
+import Toaster from "@/components/common/toaster";
 import AuthStatus from "@/components/auth-status";
-import SignOut from "@/components/sign-out";
-import MobileHeaderNav from "@/components/mobileHeaderNav";
-import DesktopHeaderNav from "@/components/desktopHeaderNav";
+import SignOut from "@/components/sign/sign-out";
+import SignIn from "@/components/sign/sign-in";
+import MobileHeaderNav from "@/components/header/mobileHeaderNav";
+import DesktopHeaderNav from "@/components/header/desktopHeaderNav";
 
 import { AppProvider } from "./providers";
 
@@ -28,13 +27,15 @@ export default async function RootLayout({
             <Toaster />
             <div>
               {session ? (
-                <p>
-                  <span>Signed in as {session.user?.email}</span> <SignOut />
-                </p>
+                <section>
+                  <p>Signed in as</p>
+                  <p>
+                    <span className={styles.user}>{session.user?.email}</span>
+                    <SignOut />
+                  </p>
+                </section>
               ) : (
-                <p>
-                  <Link href="/login">Sign in</Link>
-                </p>
+                <SignIn />
               )}
             </div>
           </menu>

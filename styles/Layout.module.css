@@ -37,8 +37,21 @@
   transition: transform 0.2s ease-in-out;
 }
 
+.menu section {
+  display: inline-flex;
+}
+
+.menu section > p:first-of-type {
+  margin-right: 0.5rem;
+}
+
+.user {
+  font-weight: 600;
+}
+
 @media (max-width: 850px) {
-  .menu > div > p > span {
+  .menu section span,
+  .menu section > p:first-of-type {
     display: none !important;
   }
 }

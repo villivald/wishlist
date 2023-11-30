@@ -4,8 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState, useContext } from "react";
 
-import Spinner from "@/components/spinner";
-import LoadingDots from "@/components/loading-dots";
+import Spinner from "@/components/common/spinner";
+import LoadingDots from "@/components/common/loading-dots";
 
 import { AppContext } from "../app/providers";
 

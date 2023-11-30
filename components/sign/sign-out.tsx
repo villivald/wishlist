@@ -5,7 +5,7 @@ import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
-import Spinner from "@/components/spinner";
+import Spinner from "@/components/common/spinner";
 
 import styles from "@/styles/Signout.module.css";
 

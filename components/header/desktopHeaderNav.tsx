@@ -13,7 +13,7 @@ export default function DesktopHeaderNav() {
       return "home";
     } else if (path === "/mywishlist") {
       return "profile";
-    } else {
+    } else if (path !== "/login") {
       return "list";
     }
   };

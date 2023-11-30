@@ -14,7 +14,7 @@ export default function MobileHeaderNav() {
       return "home";
     } else if (path === "/mywishlist") {
       return "profile";
-    } else {
+    } else if (path !== "/login") {
       return "list";
     }
   };

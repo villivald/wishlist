@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import Spinner from "@/components/spinner";
+import Spinner from "@/components/common/spinner";
 
 import styles from "@/styles/SinglePublicWishlist.module.css";
 

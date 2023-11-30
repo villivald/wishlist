@@ -1,0 +1,14 @@
+.signin[data-active="true"] {
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .signin {
+    font-weight: 600;
+  }
+
+  .signin[data-active="true"] {
+    padding-bottom: 0.15rem;
+    border-bottom: 0.25rem solid var(--color-brand-red);
+  }
+}

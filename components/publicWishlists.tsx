@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-import Spinner from "@/components/spinner";
+import Spinner from "@/components/common/spinner";
 
 import styles from "@/styles/PublicWishlists.module.css";
 
