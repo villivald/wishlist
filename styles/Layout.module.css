@@ -29,6 +29,18 @@
   gap: 0.5rem;
 }
 
+.menu div p a {
+  display: flex;
+  align-items: center;
+}
+
+.menu div p a img {
+  border-radius: 50%;
+  background-color: var(--color-white);
+  margin-right: 0.25rem;
+  box-shadow: rgba(84, 113, 135, 0.5) 2px 5px 8px 2px;
+}
+
 .menu > span:nth-child(2) {
   display: none;
 }

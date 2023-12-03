@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import Toaster from "@/components/common/toaster";
 import AuthStatus from "@/components/auth-status";
@@ -33,6 +34,12 @@ export default async function RootLayout({
                   <p>Signed in as</p>
                   <p>
                     <Link href="/profile">
+                      <Image
+                        src="/avatar.svg"
+                        alt="Logo"
+                        width={30}
+                        height={30}
+                      />
                       <span className={styles.user}>{session.user?.email}</span>
                     </Link>
                     <SignOut />
