@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import Toaster from "@/components/common/toaster";
 import AuthStatus from "@/components/auth-status";
 import SignOut from "@/components/sign/sign-out";
@@ -30,7 +32,9 @@ export default async function RootLayout({
                 <section>
                   <p>Signed in as</p>
                   <p>
-                    <span className={styles.user}>{session.user?.email}</span>
+                    <Link href="/profile">
+                      <span className={styles.user}>{session.user?.email}</span>
+                    </Link>
                     <SignOut />
                   </p>
                 </section>

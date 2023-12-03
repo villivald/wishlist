@@ -39,10 +39,8 @@
 
 .menu section {
   display: inline-flex;
-}
-
-.menu section > p:first-of-type {
-  margin-right: 0.5rem;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .user {
