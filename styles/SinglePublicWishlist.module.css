@@ -15,7 +15,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   font-family: var(--font-body);
-  margin: 2rem;
+  margin: 2rem 2rem 7rem;
 }
 
 .card {

@@ -7,6 +7,7 @@ import SignOut from "@/components/sign/sign-out";
 import SignIn from "@/components/sign/sign-in";
 import MobileHeaderNav from "@/components/header/mobileHeaderNav";
 import DesktopHeaderNav from "@/components/header/desktopHeaderNav";
+import Footer from "@/components/footer";
 
 import { AppProvider } from "./providers";
 
@@ -51,6 +52,7 @@ export default async function RootLayout({
             </div>
           </menu>
           {children}
+          <Footer />
         </AppProvider>
       </body>
     </html>

@@ -1,0 +1,21 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  position: fixed;
+  bottom: 0;
+  height: 4.125rem;
+  width: 100%;
+  padding: 1rem 2rem;
+  background-color: var(--color-brand-yellow);
+  box-shadow: inset 1px 1px 8px -1px rgba(84, 113, 135, 0.5);
+}
+
+.footer img {
+  transition: all 0.5s ease;
+}
+
+.footer img:hover {
+  transform: scale(1.2) rotate(-5deg);
+}

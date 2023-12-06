@@ -10,6 +10,7 @@
 .menu span {
   display: flex;
   gap: 2rem;
+  font-family: var(--font-subheader);
 }
 
 .menu a,
@@ -32,6 +33,13 @@
 .menu div p a {
   display: flex;
   align-items: center;
+  background-color: color-mix(
+    in hsl,
+    var(--color-brand-teal) 10%,
+    var(--color-white)
+  );
+  padding: 0.25rem;
+  border-radius: 1.25rem;
 }
 
 .menu div p a img {
@@ -63,6 +71,11 @@
   .menu section span,
   .menu section > p:first-of-type {
     display: none !important;
+  }
+
+  .menu div p a {
+    background-color: transparent;
+    padding: 0;
   }
 }
 

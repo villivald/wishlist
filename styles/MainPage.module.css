@@ -1,7 +1,11 @@
 .wrapper {
-  height: calc(100vh - 56px);
+  height: calc(100vh - 7.65rem);
   background-color: hsla(0, 100%, 50%, 1);
   background-image: var(--radial-gradient);
+}
+
+.wrapper[data-loggedin="true"] {
+  height: calc(100vh - 8.5rem);
 }
 
 .wrapper,
@@ -73,6 +77,12 @@
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@media (width <= 850px) {
+  .wrapper[data-loggedin="true"] {
+    height: calc(100vh - 8.5625rem);
   }
 }
 
