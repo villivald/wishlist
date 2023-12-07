@@ -82,7 +82,7 @@
 
 @media (width <= 850px) {
   .wrapper[data-loggedin="true"] {
-    height: calc(100vh - 8.5625rem);
+    height: calc(100dvh - 8.5625rem);
   }
 }
 
@@ -97,5 +97,6 @@
     font-family: var(--font-header);
     color: var(--color-brand-yellow-saturated);
     text-shadow: 5px 5px var(--color-brand-dark);
+    font-size: calc(var(--fontSize-header1) * 2.75);
   }
 }
