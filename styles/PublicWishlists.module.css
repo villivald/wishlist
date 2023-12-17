@@ -50,10 +50,29 @@
   text-align: center;
 }
 
-@media (max-width: 600px) {
+@media (width < 700px) {
+  .container {
+    height: calc(100dvh - 8.5625rem);
+  }
+
+  .wishlists {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (width < 600px) {
   .card p {
     font-family: var(--font-header);
     color: var(--color-brand-yellow-saturated);
     text-shadow: 2px 2px var(--color-brand-dark);
+  }
+}
+
+@media (width < 450px) {
+  .link,
+  .card {
+    width: 8rem;
+    height: 8rem;
   }
 }

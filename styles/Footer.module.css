@@ -19,3 +19,9 @@
 .footer img:hover {
   transform: scale(1.2) rotate(-5deg);
 }
+
+@media (width < 700px) {
+  .footer {
+    position: inherit;
+  }
+}
