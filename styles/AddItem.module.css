@@ -14,6 +14,15 @@
   gap: 1rem;
 }
 
+.form div textarea {
+  width: 100%;
+}
+
+.form > div:not(:last-of-type) label::after {
+  content: "*";
+  color: color-mix(in hsl, var(--color-brand-grey) 70%, var(--color-black));
+}
+
 .button,
 .disabledButton {
   border: none;
@@ -79,4 +88,15 @@
 
 .tooltip:hover {
   color: var(--color-brand-dark);
+}
+
+@media (width < 700px) {
+  .form div {
+    grid-template-columns: 1fr;
+    gap: 0.125rem;
+  }
+
+  .tooltip {
+    grid-area: unset;
+  }
 }
