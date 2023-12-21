@@ -36,6 +36,7 @@ export default function AddItem({ session }: { session: any }) {
 
   return (
     <form
+      id="addItemForm"
       className={styles.form}
       onSubmit={(e) => {
         setLoading(true);

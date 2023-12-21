@@ -3,9 +3,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState, useContext } from "react";
+import { useIntersectionObserver } from "@uidotdev/usehooks";
 
 import Spinner from "@/components/common/spinner";
 import LoadingDots from "@/components/common/loading-dots";
+import FloatingButton from "@/components/floatingButton";
 
 import { AppContext } from "../app/providers";
 
@@ -28,6 +30,12 @@ export default function Wishlist({ session }: { session: any }) {
       ready: boolean;
     }[]
   );
+
+  const [ref, entry] = useIntersectionObserver({
+    threshold: 0,
+    root: null,
+    rootMargin: "0px",
+  });
 
   useEffect(() => {
     const email = session?.user?.email;
@@ -434,6 +442,8 @@ export default function Wishlist({ session }: { session: any }) {
           </div>
         </>
       )}
+      <div ref={ref} />
+      {!entry?.isIntersecting && <FloatingButton />}
     </div>
   );
 }
