@@ -6,22 +6,28 @@
   aspect-ratio: 1;
   border-radius: 50%;
   border: none;
-  background-color: var(--color-brand-red);
-  cursor: pointer;
-  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
-  font-size: var(--fontSize-header5);
   font-family: var(--font-header);
+  font-size: var(--fontSize-header5);
+  color: var(--color-dark);
+  background-color: var(--color-brand-red);
+  box-shadow: 0 0 0.5rem
+    color-mix(in hsl, var(--color-brand-dark) 60%, transparent);
   transition: all 0.2s var(--easing-normal);
+  cursor: pointer;
 }
 
 .floatingButton:hover {
-  background-color: color-mix(
-    in hsl,
-    var(--color-brand-red) 90%,
-    var(--color-black)
-  );
+  box-shadow: 0 0 0.75rem
+    color-mix(in hsl, var(--color-brand-dark) 90%, transparent);
 }
 
 .floatingButton:active {
   transform: scale(0.95);
+}
+
+@media (max-width: 700px) {
+  .floatingButton {
+    bottom: 0.5rem;
+    right: 0.5rem;
+  }
 }
