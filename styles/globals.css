@@ -12,6 +12,7 @@
   --color-brand-dark: hsl(236, 21%, 14%);
   --color-white: hsl(0, 0%, 100%);
   --color-black: hsl(0, 0%, 0%);
+  --color-shadow: hsla(20deg 23% 43% / 50%);
 
   /* Fonts */
   --font-brand: "Nabla", serif;

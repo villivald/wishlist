@@ -49,13 +49,7 @@
   padding-right: 1.5rem;
 }
 
-.button:hover:after {
-  opacity: 1;
-  right: 0.625rem;
-  top: 0.125rem;
-}
-
-.button:after {
+.button::after {
   content: "";
   background-image: url("/add.svg");
   height: 2rem;
@@ -65,6 +59,12 @@
   font-size: 2rem;
   right: -20px;
   transition: 0.4s;
+}
+
+.button:hover::after {
+  opacity: 1;
+  right: 0.625rem;
+  top: 0.125rem;
 }
 
 .button:active {

@@ -1,6 +1,6 @@
 .wrapper {
   height: calc(100vh - 7.65rem);
-  background-color: hsla(0, 100%, 50%, 1);
+  background-color: hsl(0deg 100% 50%);
   background-image: var(--radial-gradient);
 }
 
@@ -72,9 +72,11 @@
   0% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.2);
   }
+
   100% {
     transform: scale(1);
   }
@@ -86,13 +88,13 @@
   }
 }
 
-@media (max-width: 700px) {
+@media (width < 700px) {
   .container > span {
     display: none;
   }
 }
 
-@media (max-width: 600px) {
+@media (width < 600px) {
   .container a {
     font-family: var(--font-header);
     color: var(--color-brand-yellow-saturated);

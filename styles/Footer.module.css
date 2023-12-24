@@ -9,7 +9,7 @@
   width: 100%;
   padding: 1rem 2rem;
   background-color: var(--color-brand-yellow);
-  box-shadow: inset 1px 1px 8px -1px rgba(84, 113, 135, 0.5);
+  box-shadow: inset 1px 1px 8px -1px var(--color-shadow);
 }
 
 .footer img {

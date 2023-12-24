@@ -4,7 +4,7 @@
   align-items: center;
   padding: 1rem 2rem;
   background: var(--color-brand-yellow);
-  box-shadow: inset 1px 1px 8px -1px rgba(84, 113, 135, 0.5);
+  box-shadow: inset 1px 1px 8px -1px var(--color-shadow);
 }
 
 .menu span {
@@ -20,14 +20,8 @@
   text-decoration: none;
 }
 
-.menu a:hover {
-  text-decoration: underline;
-}
-
-.menu div p {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+.menu > span > a {
+  transition: transform 0.2s ease-in-out;
 }
 
 .menu div p a {
@@ -42,19 +36,25 @@
   border-radius: 1.25rem;
 }
 
+.menu a:hover {
+  text-decoration: underline;
+}
+
+.menu div p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .menu div p a img {
   border-radius: 50%;
   background-color: var(--color-white);
   margin-right: 0.25rem;
-  box-shadow: rgba(84, 113, 135, 0.5) 2px 5px 8px 2px;
+  box-shadow: var(--color-shadow) 2px 5px 8px 2px;
 }
 
 .menu > span:nth-child(2) {
   display: none;
-}
-
-.menu > span > a {
-  transition: transform 0.2s ease-in-out;
 }
 
 .menu section {
@@ -67,7 +67,7 @@
   font-weight: 600;
 }
 
-@media (max-width: 850px) {
+@media (width < 850px) {
   .menu section span,
   .menu section > p:first-of-type {
     display: none !important;
@@ -79,7 +79,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (width < 600px) {
   .menu > span:nth-child(1) {
     display: none;
   }
