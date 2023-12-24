@@ -39,13 +39,19 @@
   margin-bottom: 0.5rem;
 }
 
-@media (max-width: 850px) {
+@media (width < 850px) {
   .cards {
     grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 600px) {
+@media (width < 700px) {
+  .cards {
+    margin: 2rem 2rem 3rem;
+  }
+}
+
+@media (width < 600px) {
   .container h1 {
     font-family: var(--font-header);
     color: var(--color-brand-teal);
