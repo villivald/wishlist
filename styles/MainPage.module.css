@@ -32,6 +32,23 @@
   align-items: center;
 }
 
+.container span > span:first-child {
+  position: absolute;
+  background-image: url("../public/index.svg");
+  width: 5rem;
+  height: 5rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.container span > span:last-child {
+  position: absolute;
+  background-image: url("../public/zap.svg");
+  width: 5rem;
+  height: 5rem;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
 .container:hover span > span:first-child {
   opacity: 0;
   transition: all 0.5s ease-in-out;
@@ -43,29 +60,12 @@
   animation: pulse 3s infinite;
 }
 
-.container span > span:first-child {
-  position: absolute;
-  background-image: url("../public/index.svg");
-  width: 5rem;
-  height: 5rem;
-  transition: all 0.5s ease-in-out;
-}
-
 .container span:first-child span:first-child {
   transform: rotate(90deg);
 }
 
 .container span:last-child span:first-child {
   transform: rotate(-90deg);
-}
-
-.container span > span:last-child {
-  position: absolute;
-  background-image: url("../public/zap.svg");
-  width: 5rem;
-  height: 5rem;
-  opacity: 0;
-  transition: all 0.5s ease-in-out;
 }
 
 @keyframes pulse {

@@ -2,7 +2,7 @@
   font-weight: 600;
 }
 
-@media (max-width: 600px) {
+@media (width < 600px) {
   .signin {
     font-weight: 600;
   }

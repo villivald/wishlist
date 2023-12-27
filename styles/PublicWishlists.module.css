@@ -38,10 +38,10 @@
 .card {
   display: grid;
   place-content: center;
-  background-color: hsla(0, 100%, 50%, 1);
+  background-color: hsl(0deg 100% 50%);
   background-image: var(--radial-gradient);
   border-radius: 5rem;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px 0 hsl(0deg 0 0 / 10%);
   padding: 1rem;
 }
 

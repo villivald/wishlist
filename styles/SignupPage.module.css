@@ -2,7 +2,7 @@
   display: grid;
   place-items: center;
   height: 100vh;
-  background-color: hsla(0, 100%, 50%, 1);
+  background-color: hsl(0deg 100% 50%);
   background-image: var(--radial-gradient);
 }
 
@@ -16,7 +16,7 @@
   padding: 2rem;
   border-radius: 1rem;
   background-color: var(--color-white);
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 1rem hsla(0deg 0% 0% / 20%);
 }
 
 .card > div > h3 {
@@ -54,7 +54,7 @@
 }
 
 .card button:hover {
-  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 0.5rem hsla(0deg 0% 0% / 20%);
 }
 
 .card button:active {
