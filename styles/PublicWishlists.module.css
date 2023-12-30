@@ -40,6 +40,8 @@
   place-content: center;
   background-color: hsl(0deg 100% 50%);
   background-image: var(--radial-gradient);
+  background-size: cover;
+  background-position: center;
   border-radius: 5rem;
   box-shadow: 0 0 10px 0 hsl(0deg 0 0 / 10%);
   padding: 1rem;

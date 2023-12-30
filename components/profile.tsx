@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, use } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 import styles from "@/styles/Profile.module.css";
@@ -9,15 +9,42 @@ export default function Profile({ session }: { session: any }) {
   // User-level state
   const [userId, setUserId] = useState(""); //id
   const [avatar, setAvatar] = useState(""); //avatar
-  const [profileName, setProfileName] = useState(""); //email
 
   // Wishlist-level state
   const [listName, setListName] = useState(""); //title
   const [listPicture, setListPicture] = useState(""); //image_url
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log(listName, profileName, avatar, listPicture);
+  const handleSubmit = () => {
+    fetch("/api/update/updateUserProfile", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userId,
+        avatar,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+
+    fetch("/api/update/updateWishlist", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userId,
+        listName,
+        listPicture,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
   };
 
   useEffect(() => {
@@ -34,7 +61,6 @@ export default function Profile({ session }: { session: any }) {
       .then((data) => {
         setUserId(data.id);
         setAvatar(data.avatar);
-        setProfileName(data.email);
       });
   }, [session]);
 
@@ -68,17 +94,6 @@ export default function Profile({ session }: { session: any }) {
           />
         </section>
         <section>
-          <label htmlFor="profileName">Profile Name</label>
-          <input
-            id="profileName"
-            name="profileName"
-            placeholder="John Doe"
-            type="text"
-            value={profileName}
-            onChange={(e) => setProfileName(e.target.value)}
-          />
-        </section>
-        <section>
           <label htmlFor="avatar">Profile Avatar</label>
           <input
             id="avatar"
@@ -88,7 +103,13 @@ export default function Profile({ session }: { session: any }) {
             value={avatar}
             onChange={(e) => setAvatar(e.target.value)}
           />
-          <Image src="/avatar.svg" alt="Logo" width={30} height={30} />
+          <Image
+            className={styles.avatar}
+            src={avatar || "/avatar.svg"}
+            alt="Avatar of a ueser profile"
+            width={30}
+            height={30}
+          />
         </section>
         <section>
           <label htmlFor="listPicture">List Image</label>
@@ -100,7 +121,12 @@ export default function Profile({ session }: { session: any }) {
             value={listPicture}
             onChange={(e) => setListPicture(e.target.value)}
           />
-          <div className={styles.card}>
+          <div
+            className={styles.card}
+            style={{
+              backgroundImage: listPicture ? `url(${listPicture})` : "",
+            }}
+          >
             <p style={{ fontSize: `${4 - listName.length / 4}rem` }}>
               {listName}
             </p>

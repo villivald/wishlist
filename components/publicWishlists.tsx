@@ -28,23 +28,32 @@ export default function PublicWishlists() {
         <Spinner size="large" />
       ) : (
         <div className={styles.wishlists}>
-          {wishlists?.map((item: { id: number; title: string }) => (
-            <Link
-              href={`/wishlist/${item.id}`}
-              key={item.id}
-              className={styles.link}
-            >
-              <div key={item.id} className={styles.card}>
-                <p
-                  style={{
-                    fontSize: `${4 - item.title.length / 4}rem`,
-                  }}
+          {wishlists?.map(
+            (item: { id: number; title: string; image_url: string }) => (
+              console.log(item),
+              (
+                <Link
+                  href={`/wishlist/${item.id}`}
+                  key={item.id}
+                  className={styles.link}
                 >
-                  {item.title}
-                </p>
-              </div>
-            </Link>
-          ))}
+                  <div
+                    key={item.id}
+                    className={styles.card}
+                    style={{
+                      backgroundImage: item.image_url
+                        ? `url(${item.image_url})`
+                        : "",
+                    }}
+                  >
+                    <p style={{ fontSize: `${4 - item.title.length / 4}rem` }}>
+                      {item.title}
+                    </p>
+                  </div>
+                </Link>
+              )
+            )
+          )}
         </div>
       )}
     </div>
