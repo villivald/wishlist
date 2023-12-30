@@ -12,12 +12,12 @@
     "format": "prisma format"
   },
   "dependencies": {
-    "@prisma/client": "^5.6.0",
-    "@types/node": "^20.10.1",
-    "@types/react": "^18.2.39",
+    "@prisma/client": "^5.7.1",
+    "@types/node": "^20.10.6",
+    "@types/react": "^18.2.46",
     "@uidotdev/usehooks": "^2.4.1",
     "bcrypt": "^5.1.1",
-    "next": "^14.0.3",
+    "next": "^14.0.4",
     "next-auth": "^4.24.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -25,11 +25,11 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
-    "eslint": "8.54.0",
-    "eslint-config-next": "^14.0.3",
-    "prisma": "^5.6.0",
-    "stylelint": "^16.0.2",
-    "stylelint-config-standard": "^35.0.0",
-    "typescript": "^5.3.2"
+    "eslint": "8.56.0",
+    "eslint-config-next": "^14.0.4",
+    "prisma": "^5.7.1",
+    "stylelint": "^16.1.0",
+    "stylelint-config-standard": "^36.0.0",
+    "typescript": "^5.3.3"
   }
 }
