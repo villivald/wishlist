@@ -91,6 +91,10 @@
 }
 
 @media (width < 700px) {
+  .form {
+    gap: 0.5rem;
+  }
+
   .form div {
     grid-template-columns: 1fr;
     gap: 0.125rem;
