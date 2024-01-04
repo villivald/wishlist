@@ -63,6 +63,11 @@
   gap: 0.5rem;
 }
 
+.avatar {
+  scale: 1.125;
+  transition: transform 0.2s ease-in-out;
+}
+
 .user {
   font-weight: 600;
 }
@@ -76,6 +81,15 @@
   .menu div p a {
     background-color: transparent;
     padding: 0;
+  }
+
+  .avatar:hover {
+    transform: scale(1.2);
+  }
+
+  .avatar[data-active="true"] {
+    outline: 0.125rem solid var(--color-brand-dark);
+    outline-offset: 0.125rem;
   }
 }
 

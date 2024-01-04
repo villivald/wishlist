@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 import { useState, useEffect } from "react";
 
@@ -11,6 +12,8 @@ interface Props {
 }
 
 export default function UserProfileLink({ session, styles }: Props) {
+  const path = usePathname();
+
   const [avatar, setAvatar] = useState("");
 
   useEffect(() => {
@@ -32,6 +35,8 @@ export default function UserProfileLink({ session, styles }: Props) {
   return (
     <Link href="/profile">
       <Image
+        className={styles.avatar}
+        data-active={path === "/profile"}
         src={avatar || "/avatar.svg"}
         alt="Avatar of a ueser profile"
         width={30}

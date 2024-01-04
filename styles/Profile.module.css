@@ -38,3 +38,9 @@
 .avatar {
   border-radius: 50%;
 }
+
+@media (width < 700px) {
+  .container {
+    height: calc(100dvh - 8.5625rem);
+  }
+}
