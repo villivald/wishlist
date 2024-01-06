@@ -22,16 +22,7 @@ export default function AddItem({ session }: { session: any }) {
   const { loading, setLoading } = useContext(AppContext);
 
   const isDisabled = () => {
-    if (
-      title.length === 0 ||
-      price.length === 0 ||
-      url.length === 0 ||
-      image_url.length === 0 ||
-      description.length === 0
-    ) {
-      return true;
-    }
-    return false;
+    return !title || !price || !url || !image_url;
   };
 
   return (

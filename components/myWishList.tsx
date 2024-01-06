@@ -162,6 +162,13 @@ export default function Wishlist({ session }: { session: any }) {
       });
   };
 
+  const checkImageUrl = (url: string) => {
+    return (
+      url.match(/\.(jpeg|jpg|gif|png|webp|avif)$/) &&
+      (url.match(/^https:\/\//) || url.match(/^http:\/\//))
+    );
+  };
+
   return (
     <div className={styles.container}>
       <h1>My Wishlist</h1>
@@ -184,7 +191,11 @@ export default function Wishlist({ session }: { session: any }) {
                 }) => (
                   <div key={item.id} className={styles.card}>
                     <Image
-                      src={item.image_url}
+                      src={
+                        checkImageUrl(item.image_url)
+                          ? item.image_url
+                          : "/no-image.svg"
+                      }
                       alt={item.title}
                       width={200}
                       height={200}
