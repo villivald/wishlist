@@ -81,6 +81,7 @@ export default function Profile({ session }: { session: any }) {
 
   return (
     <div className={styles.container}>
+      <h1>My Profile</h1>
       <form onSubmit={handleSubmit}>
         <section>
           <label htmlFor="listName">List Name</label>
@@ -132,7 +133,7 @@ export default function Profile({ session }: { session: any }) {
             </p>
           </div>
         </section>
-        <button type="submit">Submit</button>
+        <button type="submit">Save changes</button>
       </form>
     </div>
   );
