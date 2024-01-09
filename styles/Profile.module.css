@@ -82,7 +82,7 @@
 
 @media (width < 700px) {
   .container {
-    height: calc(100dvh - 8.5625rem);
+    height: calc(100dvh - 4.5rem);
   }
 
   .container input {
