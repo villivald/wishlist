@@ -1,0 +1,7 @@
+div.rating.rating:has(.star) {
+  display: flex;
+}
+
+.star[data-editable="true"]:hover {
+  cursor: pointer;
+}

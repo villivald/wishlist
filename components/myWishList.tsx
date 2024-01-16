@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect, useState, useContext } from "react";
 import { useIntersectionObserver } from "@uidotdev/usehooks";
 
+import Rating from "@/components/common/rating";
 import Spinner from "@/components/common/spinner";
 import LoadingDots from "@/components/common/loading-dots";
 import FloatingButton from "@/components/floatingButton";
@@ -253,6 +254,10 @@ export default function Wishlist({ session }: { session: any }) {
                           </p>
                         )}
                       </div>
+                      <div>
+                        <strong>Rating</strong>
+                        <Rating editable={editMode === item.id} />
+                      </div>
                       <details open={editMode === item.id}>
                         <summary>
                           <strong>Description</strong>
@@ -281,7 +286,7 @@ export default function Wishlist({ session }: { session: any }) {
                         </div>
                       )}
                     </div>
-                    <div>
+                    <div className={styles.actionButtons}>
                       {editMode !== item.id ? (
                         <>
                           <button
