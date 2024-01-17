@@ -1,4 +1,4 @@
-div.rating.rating:has(.star) {
+.rating.rating:has(.star) {
   display: flex;
 }
 

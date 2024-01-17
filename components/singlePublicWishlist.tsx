@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import Spinner from "@/components/common/spinner";
+import Rating from "@/components/common/rating";
 
 import styles from "@/styles/SinglePublicWishlist.module.css";
 
@@ -65,6 +66,7 @@ export default function Wishlist({ slug }: { slug: string }) {
                 url: string;
                 image_url: string;
                 description: string;
+                rating: number;
               }) => (
                 <div key={item.id} className={styles.card}>
                   <Link href={item.image_url} passHref target="_blank">
@@ -96,6 +98,11 @@ export default function Wishlist({ slug }: { slug: string }) {
                         </Link>
                       </p>
                     </div>
+                    <Rating
+                      editable={false}
+                      rating={item.rating}
+                      setRating={() => {}}
+                    />
                     <details>
                       <summary>
                         <strong>Description</strong>
