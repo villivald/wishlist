@@ -17,6 +17,7 @@ import styles from "@/styles/MyWishList.module.css";
 export default function Wishlist({ session }: { session: any }) {
   const [itemProcessOngoing, setItemProcessOngoing] = useState(0);
   const [editMode, setEditMode] = useState(0);
+  const [rating, setRating] = useState(0);
 
   const { loading, setLoading } = useContext(AppContext);
 
@@ -29,6 +30,7 @@ export default function Wishlist({ session }: { session: any }) {
       image_url: string;
       description: string;
       ready: boolean;
+      rating: number;
     }[]
   );
 
@@ -129,7 +131,8 @@ export default function Wishlist({ session }: { session: any }) {
     price: string,
     url: string,
     description: string,
-    image_url: string
+    image_url: string,
+    rating: number
   ) => {
     setEditMode(0);
     setItemProcessOngoing(id);
@@ -146,6 +149,7 @@ export default function Wishlist({ session }: { session: any }) {
         url,
         description,
         image_url,
+        rating,
       }),
     })
       .then((res) => res.json())
@@ -160,6 +164,7 @@ export default function Wishlist({ session }: { session: any }) {
             }
           })
         );
+        setRating(0);
       });
   };
 
@@ -189,6 +194,7 @@ export default function Wishlist({ session }: { session: any }) {
                   image_url: string;
                   description: string;
                   ready: boolean;
+                  rating: number;
                 }) => (
                   <div key={item.id} className={styles.card}>
                     <Image
@@ -256,7 +262,18 @@ export default function Wishlist({ session }: { session: any }) {
                       </div>
                       <div>
                         <strong>Rating</strong>
-                        <Rating editable={editMode === item.id} />
+                        <Rating
+                          editable={editMode === item.id}
+                          rating={
+                            editMode === item.id
+                              ? rating !== 0
+                                ? rating
+                                : item.rating
+                              : wishlistItems.find((i) => i.id === item.id)
+                                  ?.rating || item.rating
+                          }
+                          setRating={setRating}
+                        />
                       </div>
                       <details open={editMode === item.id}>
                         <summary>
@@ -348,7 +365,8 @@ export default function Wishlist({ session }: { session: any }) {
                                 item.price,
                                 item.url,
                                 item.description,
-                                item.image_url
+                                item.image_url,
+                                rating || item.rating
                               )
                             }
                           >

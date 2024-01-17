@@ -12,6 +12,7 @@ export default async function handle(
   const url = req.body.url;
   const description = req.body.description;
   const image_url = req.body.image_url;
+  const rating = req.body.rating;
 
   // find wishlist item by id
   const result = await prisma.wishlistItem.update({
@@ -24,6 +25,7 @@ export default async function handle(
       url: url,
       description: description,
       image_url: image_url,
+      rating: rating,
     },
   });
 

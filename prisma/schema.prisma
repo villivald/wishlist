@@ -30,6 +30,7 @@ model WishlistItem {
   user_id     Int
   description String  @db.VarChar(500)
   ready       Boolean @default(false)
+  rating      Int     @default(3)
 }
 
 // model for a single wishlist
