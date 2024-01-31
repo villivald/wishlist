@@ -1,8 +1,18 @@
 ### The Wishlist App
 
-![Wishlist App](./public/wishlist.webp)
-
 🔗 [wishlist.villivald.com](https://wishlist.villivald.com)
+
+#### Main page
+
+![Wishlist App](./public/wishlist1.webp)
+
+#### Personal wishlist page
+
+![Wishlist App](./public/wishlist2.webp)
+
+#### Single public wishlist page
+
+![Wishlist App](./public/wishlist3.webp)
 
 ### Technologies used
 
@@ -12,3 +22,4 @@
 - [Prisma](https://www.prisma.io/)
 - [Planetscale](https://planetscale.com/)
 - [React-Hot-Toast](https://react-hot-toast.com/)
+- [OpenMoji](https://openmoji.org/)
