@@ -49,6 +49,13 @@ export default function Wishlist({ slug }: { slug: string }) {
     (item: { id: number; title: string }) => item.id === parseInt(slug)
   );
 
+  const checkImageUrl = (url: string) => {
+    return (
+      url.match(/\.(jpeg|jpg|gif|png|webp|avif)/) &&
+      (url.match(/^https:\/\//) || url.match(/^http:\/\//))
+    );
+  };
+
   return (
     <div className={styles.container}>
       <h1>{currentWishlist[0]?.title}</h1>
@@ -72,9 +79,9 @@ export default function Wishlist({ slug }: { slug: string }) {
                   <Link href={item.image_url} passHref target="_blank">
                     <Image
                       src={
-                        item.image_url.substring(0, 4) === "http"
+                        checkImageUrl(item.image_url)
                           ? item.image_url
-                          : "https://" + item.image_url
+                          : "/no-image.svg"
                       }
                       width={200}
                       height={200}
