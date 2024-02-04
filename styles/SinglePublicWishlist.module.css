@@ -49,6 +49,13 @@
   .cards {
     margin: 2rem 2rem 3rem;
   }
+
+  .container {
+    min-height: calc(100vh - 4rem);
+    place-content: unset;
+    align-items: start;
+    justify-content: center;
+  }
 }
 
 @media (width < 600px) {
