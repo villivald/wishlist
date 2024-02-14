@@ -18,8 +18,8 @@
 
 - [Next.js](https://nextjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [Postgres](https://vercel.com/storage/postgres)
 - [NextAuth.js](https://next-auth.js.org/)
 - [Prisma](https://www.prisma.io/)
-- [Planetscale](https://planetscale.com/)
 - [React-Hot-Toast](https://react-hot-toast.com/)
 - [OpenMoji](https://openmoji.org/)
